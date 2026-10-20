@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0f6b5f">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="托福语料">
+<title>托福面试语料库</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;800&family=Noto+Sans+SC:wght@400;500;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: mobile-first study app — sticky top bar, one scrolling view, fixed bottom tab bar; widens to a centered column on desktop */
+:root{
+  --bg:#f3f5f4; --paper:#ffffff; --ink:#15302c; --muted:#5a6e6a; --line:#d7e0dd;
+  --accent:#0f6b5f; --accent-soft:#e1efec; --hl:#f4c34a; --hl-soft:#fdf1cf; --hl-ink:#6b4a00;
+  --mine:#7a4fb5; --mine-soft:#f1eaf9; --ok:#2e7d4f; --warn:#a15c00;
+  --display:"Noto Serif SC","Songti SC",serif; --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --tabh:62px;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f1918; --paper:#16231f; --ink:#e3ece9; --muted:#9bb0ab; --line:#2a3b37;
+  --accent:#5cc2b2; --accent-soft:#1d3532; --hl:#e3b23c; --hl-soft:#3a3018; --hl-ink:#f4d58a;
+  --mine:#b99be6; --mine-soft:#2a2238; --ok:#6fcf97; --warn:#f2b45a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1918; --paper:#16231f; --ink:#e3ece9; --muted:#9bb0ab; --line:#2a3b37;
+  --accent:#5cc2b2; --accent-soft:#1d3532; --hl:#e3b23c; --hl-soft:#3a3018; --hl-ink:#f4d58a;
+  --mine:#b99be6; --mine-soft:#2a2238; --ok:#6fcf97; --warn:#f2b45a; color-scheme:dark}
+html{-webkit-text-size-adjust:100%}
+[hidden]{display:none!important}
+img{max-width:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.65;-webkit-tap-highlight-color:transparent}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--paper)}
+button{font:inherit;color:inherit}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--paper);border-bottom:1px solid var(--line)}
+.bar-in{max-width:880px;margin:0 auto;display:flex;align-items:center;gap:10px;padding-block:10px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.bar h1{font-family:var(--display);font-weight:800;font-size:18px;margin:0;flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.backbtn{appearance:none;border:0;background:none;color:var(--accent);font-weight:500;font-size:15px;cursor:pointer;padding:4px 6px 4px 0}
+.sync{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:5px;white-space:nowrap}
+.sync i{width:7px;height:7px;border-radius:50%;background:var(--muted);display:inline-block}
+.sync[data-s="ok"] i{background:var(--ok)}.sync[data-s="saving"] i{background:var(--hl)}.sync[data-s="local"] i{background:var(--warn)}.sync[data-s="err"] i{background:#c0392b}
+main{max-width:880px;margin:0 auto;padding-block:16px calc(var(--tabh) + 28px + env(safe-area-inset-bottom,0px));padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:9;background:var(--paper);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);padding-left:env(safe-area-inset-left,0px);padding-right:env(safe-area-inset-right,0px)}
+.tabbar-in{max-width:880px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);height:var(--tabh)}
+.tb{appearance:none;border:0;background:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--muted);font-size:12px}
+.tb svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tb[aria-selected="true"]{color:var(--accent);font-weight:700}
+.tb:focus-visible,.tile:focus-visible,.chip:focus-visible,.btn:focus-visible,.backbtn:focus-visible,.golink:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.label{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 8px}
+.intro{color:var(--muted);font-size:13.5px;margin:0 0 14px;max-width:68ch}
+details.about{background:var(--hl-soft);color:var(--hl-ink);border-radius:8px;padding:10px 14px;font-size:13px;margin:0 0 18px}
+details.about summary{cursor:pointer;font-weight:500}
+details.about p{margin:8px 0 0}
+details.about a{color:inherit}
+.stats{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.stats b{font-family:var(--mono);color:var(--ink);font-size:15px;margin-right:3px}
+.fam{margin:0 0 20px}
+.fam h2{font-family:var(--display);font-size:16px;margin:0 0 8px;display:flex;gap:8px;align-items:baseline}
+.fam h2 span{font:500 12px var(--mono);color:var(--accent)}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:8px}
+@media (max-width:380px){.tiles{grid-template-columns:1fr 1fr}}
+.tile{appearance:none;text-align:left;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:11px 12px;display:flex;flex-direction:column;gap:3px;min-width:0}
+.tile:active{transform:scale(.98)}
+.tk{font:500 12px var(--mono);color:var(--accent)}
+.tt{font-family:var(--display);font-size:15.5px;font-weight:600;line-height:1.35}
+.tm{font-size:11.5px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px}
+.pill{font-style:normal;padding:0 6px;border-radius:4px;font-size:11px}
+.pill.hot{color:var(--hl-ink);background:var(--hl-soft)}
+.pill.mine{color:var(--mine);background:var(--mine-soft)}
+.dh{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin:0 0 14px}
+.dh h2{font-family:var(--display);font-size:24px;margin:0}
+.stack{display:flex;flex-direction:column;gap:12px}
+.blk{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px;min-width:0}
+.blk p{margin:0}
+.blk.minebox{border-color:var(--mine);box-shadow:0 0 0 3px var(--mine-soft)}
+.minehead{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.minehead .label{color:var(--mine);margin:0}
+textarea,input[type=text]{width:100%;box-sizing:border-box;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:10px 12px;line-height:1.6}
+textarea{min-height:150px;resize:vertical}
+textarea.small{min-height:64px}
+textarea:focus,input[type=text]:focus{outline:2px solid var(--mine);outline-offset:0;border-color:transparent}
+.meta{font-size:12px;color:var(--muted);display:flex;flex-wrap:wrap;gap:6px 12px;margin-top:6px;align-items:center}
+.btn{appearance:none;border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:6px 14px;font-size:13px;cursor:pointer}
+.btn.pri{background:var(--accent);border-color:var(--accent);color:var(--paper);font-weight:500}
+.btn.mine{border-color:var(--mine);color:var(--mine)}
+.btn.ghost{border-color:transparent;background:none;color:var(--muted);padding:6px 8px}
+.btn[disabled]{opacity:.45;cursor:default}
+.items{list-style:none;margin:8px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.items li{display:flex;gap:8px;align-items:flex-start;background:var(--mine-soft);border-radius:8px;padding:8px 10px}
+.items li div{flex:1;min-width:0}
+.items .en{font-weight:500;word-break:break-word}
+.items .zh{font-size:12.5px;color:var(--muted)}
+.items button{appearance:none;border:0;background:none;color:var(--muted);cursor:pointer;font-size:18px;line-height:1;padding:2px 4px}
+.addrow{display:grid;grid-template-columns:1fr;gap:6px;margin-top:8px}
+@media (min-width:560px){.addrow{grid-template-columns:2fr 1fr auto}}
+.model{margin:4px 0 8px;padding:12px 14px;border-left:3px solid var(--accent);background:var(--accent-soft);border-radius:0 8px 8px 0;line-height:1.75}
+.hint{font-size:12.5px;color:var(--muted)}
+.frames{margin:0;padding-left:1.1em;display:flex;flex-direction:column;gap:6px}
+.gap{color:var(--accent);font-family:var(--mono)}
+.chunkl{margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:6px 14px}
+.chunkl div{display:flex;flex-direction:column;border-bottom:1px dashed var(--line);padding-bottom:4px}
+.chunkl dt{font:500 14px var(--mono)}
+.chunkl dd{margin:0;font-size:12.5px;color:var(--muted)}
+.useq{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
+.useq>li{border-top:1px dashed var(--line);padding-top:12px}
+.useq>li:first-child{border-top:0;padding-top:0}
+.uh{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ref{font:12px var(--mono);color:var(--muted)}
+.uq{font-weight:500;margin:3px 0 0!important}
+.ua{color:var(--accent);font-size:13.5px;margin:2px 0 0!important}
+details.en summary{font-size:12px;color:var(--muted);cursor:pointer;margin-top:3px}
+.orig{display:block;font-size:13px;color:var(--muted);margin-top:2px;line-height:1.55}
+.qnote{margin-top:8px}
+.qnote textarea{border-color:var(--mine-soft);background:var(--mine-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.chip{appearance:none;border:1px solid var(--line);background:var(--paper);font-size:13px;padding:5px 11px;border-radius:999px;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.set{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px;margin-bottom:10px}
+.set-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-bottom:8px}
+.set-h h3{font-family:var(--display);font-size:17px;margin:0}
+.set-h .en{font:12.5px var(--mono);color:var(--muted)}
+.hotb{background:var(--hl);color:#3a2800;font:700 11px var(--body);padding:2px 8px;border-radius:999px}
+.ext{border:1px solid var(--line);color:var(--muted);font-size:11px;padding:1px 7px;border-radius:999px}
+.dates{font-size:12.5px;color:var(--muted);flex-basis:100%;font-variant-numeric:tabular-nums}
+.dates b{color:var(--ink);font-weight:500}
+ol.qs{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:8px}
+.qmeta{display:inline-flex;gap:4px;margin-left:6px;vertical-align:1px;flex-wrap:wrap}
+.tag{font:11px var(--mono);border:1px solid var(--line);border-radius:4px;padding:0 5px;color:var(--muted);background:none}
+.tag.c{border-color:var(--accent);color:var(--accent);cursor:pointer}
+.drill-top{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:12px}
+.drill-top select{font:inherit;font-size:14px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:7px 10px;max-width:100%}
+.qcard{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 16px;display:flex;flex-direction:column;gap:10px}
+.qcard .ref{font-size:12px}
+.qbig{font-family:var(--display);font-size:20px;font-weight:600;line-height:1.5;margin:0}
+.qen{font-size:14px;color:var(--muted);margin:0}
+.timer{display:flex;align-items:center;gap:10px}
+.track{flex:1;height:8px;background:var(--bg);border-radius:99px;overflow:hidden;border:1px solid var(--line)}
+.fill{height:100%;width:0;background:var(--accent);transition:width .25s linear}
+.fill.late{background:var(--hl)}
+.tnum{font:500 16px var(--mono);min-width:3ch;text-align:right;font-variant-numeric:tabular-nums}
+.reveal{border-top:1px dashed var(--line);padding-top:10px;display:flex;flex-direction:column;gap:8px}
+.reveal .from{font-size:11.5px;color:var(--muted)}
+.reveal .txt{white-space:pre-wrap;line-height:1.7}
+.reveal .txt.mine{color:var(--ink);background:var(--mine-soft);border-radius:8px;padding:10px 12px}
+.drill-actions{display:flex;flex-wrap:wrap;gap:8px}
+.mine-list{display:flex;flex-direction:column;gap:10px}
+.mine-row{appearance:none;text-align:left;width:100%;cursor:pointer;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;display:flex;flex-direction:column;gap:4px}
+.mine-row .pv{font-size:13.5px;color:var(--muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.empty{background:var(--paper);border:1px dashed var(--line);border-radius:12px;padding:18px;color:var(--muted);font-size:14px}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabh) + 14px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:8px 14px;border-radius:999px;font-size:13px;z-index:20;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.on{opacity:1}
+details.guide{background:var(--accent-soft);color:var(--ink)}
+details.guide summary{color:var(--accent)}
+.gsec{margin-top:12px}
+.gsec h3{font-family:var(--display);font-size:15px;margin:0 0 4px}
+.gsec ol,.gsec ul{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:3px}
+.gnote{font-size:12.5px;color:var(--muted);margin:4px 0 0!important}
+.toggles{display:flex;flex-wrap:wrap;gap:6px 16px;margin:0 0 12px;font-size:13.5px}
+.toggles label{display:flex;align-items:center;gap:5px}
+.qbig.en{font-family:var(--body);font-size:18px;line-height:1.6}
+.qzh{font-size:14.5px;color:var(--muted);margin:0;border-left:3px solid var(--line);padding-left:10px}
+.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;margin-right:4px}
+.live{display:flex;align-items:center;gap:8px;font-size:13px;color:#c0392b}
+.live .dot{width:9px;height:9px;border-radius:50%;background:#c0392b;animation:pulse 1.2s infinite}
+@keyframes pulse{50%{opacity:.25}}
+.asr,.recbox{border-top:1px dashed var(--line);padding-top:10px;display:flex;flex-direction:column;gap:6px}
+.asr .from,.recbox .from{font-size:11.5px;color:var(--muted)}
+.asr .txt{line-height:1.7;background:var(--bg);border-radius:8px;padding:10px 12px}
+.interim{color:var(--muted)}
+.recbox audio{width:100%}
+body.locked{overflow:hidden}
+.lock{position:fixed;inset:0;z-index:30;background:var(--bg);display:flex;align-items:center;justify-content:center;padding:calc(24px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));overflow-y:auto}
+.lock-card{width:100%;max-width:380px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px 22px;display:flex;flex-direction:column;gap:10px}
+.lock-card img{border-radius:16px;align-self:center}
+.lock-card h2{font-family:var(--display);font-size:22px;margin:4px 0 0;text-align:center}
+.lock-sub{margin:0 0 6px;font-size:14px;color:var(--muted);text-align:center}
+.lock-card .label{margin:6px 0 0}
+#lockCode{font:500 22px var(--mono);letter-spacing:2px;text-align:center;text-transform:uppercase;padding:12px;width:100%;box-sizing:border-box;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px}
+#lockCode:focus{outline:2px solid var(--accent);border-color:transparent}
+.lock-msg{margin:0;color:#c0392b;font-size:13.5px}
+.lock-card .btn.pri{padding:11px 14px;font-size:16px;margin-top:4px}
+.lock-foot{margin:4px 0 0;font-size:12px;color:var(--muted);text-align:center}
+.authline{font-size:11.5px;color:var(--muted);text-align:right}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="lock" id="lock" hidden>
+  <form class="lock-card" id="lockForm" autocomplete="off">
+    <img src="icon-192.png" alt="" width="72" height="72">
+    <h2>托福面试语料库</h2>
+    <p class="lock-sub">这是受邀使用的学习工具。请输入分享者发给你的邀请码。</p>
+    <label for="lockCode" class="label">邀请码</label>
+    <input id="lockCode" name="code" inputmode="text" autocapitalize="characters" spellcheck="false" placeholder="XXXX-XXXX-XXXX" maxlength="14">
+    <p class="lock-msg" id="lockMsg" role="alert" hidden></p>
+    <button class="btn pri" id="lockGo" type="submit">解锁</button>
+    <p class="lock-foot">输入一次后，这台设备会记住，之后打开不用再输，没网也能用。</p>
+  </form>
+</div>
+
+
+<header class="bar"><div class="bar-in">
+  <button class="backbtn" id="backbtn" hidden>← 返回</button>
+  <h1 id="bartitle">托福面试语料库</h1>
+  <span class="sync" id="sync" data-s="local"><i></i><span id="synctxt">载入中</span></span>
+</div></header>
+
+<main>
+  <section id="v-cards">
+    <div id="cardsHome">
+      <p class="intro">2026 新托福口语 Task 2 近两个月机经，按「能共用一套素材」分成 30 张语料卡。点开一张卡，写你自己的回答、句子和每道题的要点，自动保存在这台设备上，没网也能用。</p>
+      <div class="stats" id="stats"></div>
+      <details class="about guide" id="guide"><summary>怎么打开和添加到主屏幕</summary>
+        <div class="gsec"><h3>iPhone / iPad</h3>
+          <ol><li>用 <b>Safari</b> 打开这个网址。</li><li>点底部的分享按钮（方框带向上箭头）。</li><li>往下滑，点 <b>添加到主屏幕</b>，再点右上角 <b>添加</b>。</li></ol>
+          <p class="gnote">用 iPhone 上的 Chrome 也可以：点地址栏右边的分享按钮，再选「添加到主屏幕」。</p></div>
+        <div class="gsec"><h3>安卓手机</h3>
+          <ol><li>用 <b>Chrome</b> 打开这个网址。</li><li>点右上角 <b>⋮</b>。</li><li>点 <b>添加到主屏幕</b> 或 <b>安装应用</b>，再确认。</li></ol>
+          <p class="gnote">三星浏览器：点底部菜单 → 添加页面到 → 主屏幕。华为、小米等自带浏览器：在菜单里找「添加到桌面」；找不到就换 Chrome。</p></div>
+        <div class="gsec"><h3>Windows / Mac 电脑</h3>
+          <ol><li><b>Chrome</b>：点地址栏右边的安装图标，或者 ⋮ → 投放、保存和分享 → 将页面作为应用安装。</li>
+          <li><b>Edge</b>：点 ··· → 应用 → 将此网站作为应用安装。</li>
+          <li><b>Mac 上的 Safari</b>（macOS 14 及以上）：菜单栏「文件」→ 添加到程序坞。</li></ol></div>
+        <div class="gsec"><h3>用之前看一下</h3>
+          <ul><li>你写的语料只存在<b>这台设备、这个打开方式</b>里。在 iPhone 上，Safari 网页和主屏幕图标是分开存的，所以建议<b>先添加到主屏幕</b>，以后都从图标打开再开始写。</li>
+          <li>换设备或想搬数据：到「我的」点 <b>导出备份</b>，到新的地方点 <b>导入备份</b>。</li>
+          <li>背诵时录音，第一次会问麦克风权限，请点 <b>允许</b>。iPhone 转不出文字的话，到「设置」里检查 Siri 和听写有没有打开。</li>
+          <li>题库每周更新，联网打开就是最新的；没网时显示上次打开时的版本。</li><li>邀请码只给你本人使用。邀请码被停用后，下次更新就打不开了，你写的语料仍保存在手机里。</li></ul></div>
+      </details>
+      <div id="grid"></div>
+    </div>
+    <div id="detail" hidden></div>
+  </section>
+  <section id="v-drill" hidden></section>
+  <section id="v-bank" hidden>
+    <div class="chips" id="bankChips"></div>
+    <div id="bank"></div>
+  </section>
+  <section id="v-mine" hidden></section>
+</main>
+
+<nav class="tabbar" role="tablist"><div class="tabbar-in">
+  <button class="tb" role="tab" id="tb-cards" data-v="cards" aria-selected="true"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="8" height="7" rx="1.5"/><rect x="13" y="4" width="8" height="7" rx="1.5"/><rect x="3" y="13" width="8" height="7" rx="1.5"/><rect x="13" y="13" width="8" height="7" rx="1.5"/></svg>语料卡</button>
+  <button class="tb" role="tab" id="tb-drill" data-v="drill" aria-selected="false"><svg viewBox="0 0 24 24"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2.5 2"/><path d="M9 2h6"/></svg>背诵</button>
+  <button class="tb" role="tab" id="tb-bank" data-v="bank" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M5 4h11l3 3v13H5z"/><path d="M8 10h8M8 14h8M8 18h5"/></svg>题库</button>
+  <button class="tb" role="tab" id="tb-mine" data-v="mine" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>我的</button>
+</div></nav>
+<div class="toast" id="toast"></div>
+
+<script>
+function startApp(D){
+const {WIN,FAM,CARDS,MAP,FN}=D; const SETS=D.SETS;
+const DATA_VER=D.updated||"未标注";
+SETS.forEach(s=>{const m=MAP[s.t]; s.q.forEach((q,i)=>{if(m&&m[i]){q[2]=m[i][0]; q[4]=m[i][1];}}); s.win=s.d.filter(x=>x>=WIN).sort(); s.total=s.d.length});
+SETS.sort((a,b)=>b.win.length-a.win.length||b.total-a.total||(b.win.at(-1)||"").localeCompare(a.win.at(-1)||""));
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const md=d=>d.slice(5).replace("-",".");
+const allQ=[];SETS.forEach((s,si)=>s.q.forEach((q,qi)=>allQ.push({si,qi,q,key:s.t+"#"+qi})));
+const cardQs=k=>allQ.filter(x=>x.q[2]===k);
+const cardHot=k=>new Set(cardQs(k).filter(x=>SETS[x.si].win.length>=2).map(x=>x.si)).size;
+const cname=k=>CARDS[k]?CARDS[k].t:k;
+const shortZh=s=>s.zh.replace(/（.*/,"");
+function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("on"),1800)}
+
+/* ---------- my notes: stored in this browser ---------- */
+const LS="toefl-notes-v1";
+let N={}; try{N=JSON.parse(localStorage.getItem(LS)||"{}")||{}}catch(e){N={}}
+let storageOK=true;
+const saveLocal=()=>{try{localStorage.setItem(LS,JSON.stringify(N)); storageOK=true}catch(e){storageOK=false}};
+const mode="local";
+function setSync(s,t){$("#sync").dataset.s=s;$("#synctxt").textContent=t}
+function note(k){if(!N[k]||typeof N[k]!=="object")N[k]={answer:"",items:[],qnotes:{}}; const n=N[k]; n.answer=n.answer||""; n.items=Array.isArray(n.items)?n.items:[]; n.qnotes=n.qnotes&&typeof n.qnotes==="object"?n.qnotes:{}; return n}
+function hasContent(k){const n=N[k]; return !!(n&&((n.answer||"").trim()||(n.items||[]).length||Object.values(n.qnotes||{}).some(v=>(v||"").trim())))}
+let saveT; function touch(k){note(k).updatedAt=Date.now(); setSync("saving","保存中…"); clearTimeout(saveT);
+  saveT=setTimeout(()=>{saveLocal(); setSync(storageOK?"ok":"err",storageOK?"已保存":"保存失败，空间不足")},400);}
+
+/* ---------- navigation ---------- */
+let view="cards", openK=null;
+function show(v){ if(v!=="drill") stopTimer(); view=v; ["cards","drill","bank","mine"].forEach(x=>{$("#v-"+x).hidden=x!==v; $("#tb-"+x).setAttribute("aria-selected",x===v)});
+  if(v!=="cards"||!openK) closeDetailUI();
+  if(v==="drill") renderDrill(); if(v==="mine") renderMine();
+  $("#bartitle").textContent={cards:openK?cname(openK):"托福面试语料库",drill:"背诵",bank:"题库",mine:"我的语料"}[v];
+  try{history.replaceState(null,"",location.pathname+location.search+(v==="cards"?(openK?"#"+openK:""):"#"+v))}catch(e){}
+  window.scrollTo(0,0); }
+document.querySelectorAll(".tb").forEach(b=>b.onclick=()=>{ if(b.dataset.v==="cards") openK=null; show(b.dataset.v); if(b.dataset.v==="cards") renderGrid(); });
+$("#backbtn").onclick=()=>{openK=null; show("cards"); renderGrid();};
+function closeDetailUI(){ $("#detail").hidden=true; $("#cardsHome").hidden=false; $("#backbtn").hidden=true; }
+function openCard(k){ if(!CARDS[k]) return; openK=k; renderDetail(k); $("#cardsHome").hidden=true; $("#detail").hidden=false; $("#backbtn").hidden=false; show("cards"); }
+
+/* ---------- card grid ---------- */
+function renderGrid(){
+  const hot=SETS.filter(s=>s.win.length>=2).length, written=Object.keys(CARDS).filter(hasContent).length;
+  $("#stats").innerHTML=`<span><b>${SETS.length}</b>题组</span><span><b>${allQ.length}</b>道题</span><span><b>${hot}</b>组近两月考 2 次+</span><span><b>${written}</b>/30 张卡写了语料</span>`;
+  $("#grid").innerHTML=Object.keys(FAM).map(f=>{const ks=Object.keys(CARDS).filter(k=>k[0]===f); if(!ks.length) return "";
+    return `<section class="fam"><h2><span>${f}</span>${FAM[f]}</h2><div class="tiles">${ks.map(k=>{const h=cardHot(k);
+      return `<button class="tile" id="tile-${k}" data-k="${k}"><span class="tk">${k}</span><span class="tt">${esc(cname(k))}</span><span class="tm">${cardQs(k).length} 题${h?`<em class="pill hot">${h} 高频组</em>`:""}${hasContent(k)?`<em class="pill mine">已写</em>`:""}</span></button>`}).join("")}</div></section>`}).join("");
+}
+$("#grid").addEventListener("click",e=>{const b=e.target.closest(".tile"); if(b) openCard(b.dataset.k)});
+
+/* ---------- card detail with editor ---------- */
+const wordsOf=t=>(t.trim().match(/[A-Za-z0-9'’-]+/g)||[]).length;
+function wcText(t){const w=wordsOf(t); return w?`${w} 词 · 约 ${Math.round(w/2.3)} 秒（45 秒大约 100–115 词）`:"还没写。可以先点「用示范起稿」，再把细节换成你自己的"}
+function renderDetail(k){
+  const c=CARDS[k], n=note(k);
+  const qs=cardQs(k).sort((a,b)=>SETS[b.si].win.length-SETS[a.si].win.length);
+  $("#detail").innerHTML=`<header class="dh"><span class="tk">${k}</span><h2>${esc(c.t)}</h2><span class="ref">${FAM[k[0]]} · ${qs.length} 道真题</span></header>
+  <div class="stack">
+   <section class="blk"><p class="label">你要准备的素材</p><p>${esc(c.prep)}</p></section>
+   <section class="blk minebox">
+     <div class="minehead"><p class="label">我的回答</p><button class="btn mine" id="useModel">用示范起稿</button></div>
+     <textarea id="myAns" placeholder="写你自己的版本：把示范里的人物、地点、数字换成你的真实经历……"></textarea>
+     <div class="meta"><span id="wc"></span></div>
+     <p class="label" style="margin:14px 0 0">我的句子与词块</p>
+     <ul class="items" id="myItems"></ul>
+     <div class="addrow"><input type="text" id="itEn" placeholder="英文句子或词块" autocomplete="off"><input type="text" id="itZh" placeholder="中文备注（可选）" autocomplete="off"><button class="btn pri" id="itAdd">添加</button></div>
+   </section>
+   <section class="blk"><p class="label">示范语料 · ${wordsOf(c.model)} 词</p><div class="model">${esc(c.model)}</div><p class="hint">样例细节是编的，背之前换成你自己的。</p></section>
+   <section class="blk"><p class="label">句型 · 点 ＋ 收进我的句子</p><ul class="frames">${c.frames.map((f,i)=>`<li>${esc(f).replace(/___/g,'<span class="gap">___</span>')} <button class="btn ghost addf" data-i="${i}" aria-label="收藏这个句型">＋</button></li>`).join("")}</ul></section>
+   <section class="blk"><p class="label">词块 · 点 ＋ 收进我的句子</p><dl class="chunkl">${c.chunks.map(([e,z],i)=>`<div><dt>${esc(e)} <button class="btn ghost addc" data-i="${i}" aria-label="收藏这个词块">＋</button></dt><dd>${esc(z)}</dd></div>`).join("")}</dl></section>
+   <section class="blk"><p class="label">考到这些题时怎么用</p><ol class="useq">${qs.map(x=>{const s=SETS[x.si];const has=(n.qnotes[x.key]||"").trim();
+     return `<li><div class="uh"><span class="ref">${esc(shortZh(s))} Q${x.qi+1}</span>${s.win.length>=2?`<em class="pill hot">近两月 ${s.win.length} 次</em>`:""}</div>
+     <p class="uq">${esc(x.q[0])}</p><p class="ua">→ ${esc(x.q[4]||"")}</p>
+     <details class="en"><summary>英文原题</summary><span class="orig">${esc(x.q[3])}</span></details>
+     <div class="qnote">${has?"":`<button class="btn ghost qopen" data-q="${esc(x.key)}">＋ 写我的要点</button>`}<textarea class="small qta" data-q="${esc(x.key)}" placeholder="我的要点：这题打算怎么答" ${has?"":"hidden"}></textarea></div></li>`}).join("")}</ol></section>
+  </div>`;
+  const ta=$("#myAns"); ta.value=n.answer; $("#wc").textContent=wcText(n.answer);
+  ta.addEventListener("input",()=>{note(k).answer=ta.value; $("#wc").textContent=wcText(ta.value); touch(k)});
+  $("#useModel").onclick=()=>{ if(ta.value.trim()&&!$("#useModel").dataset.confirm){$("#useModel").dataset.confirm="1"; $("#useModel").textContent="再点一次：替换现有内容"; return;}
+    ta.value=c.model; note(k).answer=c.model; $("#wc").textContent=wcText(c.model); touch(k); $("#useModel").textContent="用示范起稿"; delete $("#useModel").dataset.confirm; ta.focus(); };
+  renderItems(k);
+  const add=(en,zh)=>{en=(en||"").trim(); if(!en) return false; const it=note(k).items; if(it.some(x=>x.en===en)){toast("已经收藏过了");return false} it.push({en,zh:(zh||"").trim()}); touch(k); renderItems(k); toast("已加入我的句子"); return true};
+  $("#itAdd").onclick=()=>{ if(add($("#itEn").value,$("#itZh").value)){$("#itEn").value="";$("#itZh").value="";} };
+  $("#itEn").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("#itAdd").click()}});
+  $("#itZh").addEventListener("keydown",e=>{if(e.key==="Enter"){e.preventDefault();$("#itAdd").click()}});
+  $("#detail").querySelectorAll(".addf").forEach(b=>b.onclick=()=>add(c.frames[+b.dataset.i],"句型"));
+  $("#detail").querySelectorAll(".addc").forEach(b=>b.onclick=()=>add(c.chunks[+b.dataset.i][0],c.chunks[+b.dataset.i][1]));
+  $("#detail").querySelectorAll(".qta").forEach(t=>{ t.value=n.qnotes[t.dataset.q]||""; t.addEventListener("input",()=>{note(k).qnotes[t.dataset.q]=t.value; touch(k)}) });
+  $("#detail").querySelectorAll(".qopen").forEach(b=>b.onclick=()=>{const t=b.nextElementSibling; t.hidden=false; b.remove(); t.focus()});
+}
+function renderItems(k){ const it=note(k).items, ul=$("#myItems"); if(!ul) return;
+  ul.innerHTML=it.length?it.map((x,i)=>`<li><div><div class="en">${esc(x.en)}</div>${x.zh?`<div class="zh">${esc(x.zh)}</div>`:""}</div><button data-i="${i}" aria-label="删除">×</button></li>`).join(""):`<li style="background:none;padding:0;color:var(--muted);font-size:13px">还没有。可以在下面输入，或者点句型、词块旁边的 ＋。</li>`;
+  ul.querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>{note(k).items.splice(+b.dataset.i,1); touch(k); renderItems(k)}); }
+function refreshCard(k){ if(openK!==k||$("#detail").hidden) return; const n=note(k);
+  const ta=$("#myAns"); if(ta&&document.activeElement!==ta&&ta.value!==n.answer){ta.value=n.answer; $("#wc").textContent=wcText(n.answer)}
+  renderItems(k);
+  $("#detail").querySelectorAll(".qta").forEach(t=>{ if(document.activeElement!==t){const v=n.qnotes[t.dataset.q]||""; if(t.value!==v){t.value=v; if(v){t.hidden=false; const b=t.previousElementSibling; if(b&&b.classList.contains("qopen")) b.remove();}}} }); }
+
+/* ---------- drill (English first, record, playback, speech-to-text) ---------- */
+const PREF="toefl-drill-prefs";
+let P={zh:false,rec:true,asr:true}; try{Object.assign(P,JSON.parse(localStorage.getItem(PREF)||"{}"))}catch(e){}
+const savePref=()=>{try{localStorage.setItem(PREF,JSON.stringify(P))}catch(e){}};
+const SR=window.SpeechRecognition||window.webkitSpeechRecognition||null;
+const CAN_REC=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);
+const CAN_TTS=!!window.speechSynthesis;
+let dFilter="hot", dCur=null, dTimer=null, dLeft=45, dStart=0;
+let rs=null; // live recording session
+/* recordings live in IndexedDB on this device (latest take per question) */
+let idbP=null;
+function idb(){ if(idbP) return idbP; idbP=new Promise((res,rej)=>{ try{ const r=indexedDB.open("toefl-rec",1); r.onupgradeneeded=()=>r.result.createObjectStore("rec"); r.onsuccess=()=>res(r.result); r.onerror=()=>rej(r.error);}catch(e){rej(e)} }); return idbP; }
+async function recGet(k){ try{const d=await idb(); return await new Promise((res,rej)=>{const q=d.transaction("rec").objectStore("rec").get(k); q.onsuccess=()=>res(q.result||null); q.onerror=()=>rej(q.error)})}catch(e){return null} }
+async function recSet(k,v){ try{const d=await idb(); await new Promise((res,rej)=>{const t=d.transaction("rec","readwrite"); t.objectStore("rec").put(v,k); t.oncomplete=res; t.onerror=()=>rej(t.error)}); return true}catch(e){return false} }
+async function recDel(k){ try{const d=await idb(); await new Promise((res,rej)=>{const t=d.transaction("rec","readwrite"); t.objectStore("rec").delete(k); t.oncomplete=res; t.onerror=()=>rej(t.error)})}catch(e){} }
+
+function dPool(){ if(dFilter==="all") return allQ; if(dFilter==="hot") return allQ.filter(x=>SETS[x.si].win.length>=2);
+  if(dFilter==="mine") return allQ.filter(x=>(note(x.q[2]).qnotes[x.key]||"").trim()||(note(x.q[2]).answer||"").trim()); return cardQs(dFilter); }
+function renderDrill(){
+  const opts=[["hot","近两月高频题"],["all","全部 "+allQ.length+" 题"],["mine","我写过语料的题"],...Object.keys(CARDS).map(k=>[k,k+" "+cname(k)])];
+  $("#v-drill").innerHTML=`<div class="drill-top"><select id="dFilter" aria-label="抽题范围">${opts.map(([v,t])=>`<option value="${v}" ${v===dFilter?"selected":""}>${esc(t)}</option>`).join("")}</select></div>
+   <div class="toggles">
+     <label><input type="checkbox" id="pZh" ${P.zh?"checked":""}> 显示中文意思</label>
+     ${CAN_REC?`<label><input type="checkbox" id="pRec" ${P.rec?"checked":""}> 答题时录音</label>`:""}
+     ${SR&&CAN_REC?`<label><input type="checkbox" id="pAsr" ${P.asr?"checked":""}> 语音转文字</label>`:""}
+   </div>
+   ${CAN_REC?"":`<p class="hint" style="margin:0 0 10px">这个浏览器不支持录音，只能计时。换成 Safari 或 Chrome 打开就可以录音。</p>`}
+   <div id="dCard"></div>`;
+  $("#dFilter").onchange=e=>{dFilter=e.target.value; nextQ()};
+  $("#pZh").onchange=e=>{P.zh=e.target.checked; savePref(); const z=$("#dQzh"); if(z) z.hidden=!P.zh};
+  const pr=$("#pRec"); if(pr) pr.onchange=e=>{P.rec=e.target.checked; savePref()};
+  const pa=$("#pAsr"); if(pa) pa.onchange=e=>{P.asr=e.target.checked; savePref()};
+  if(!dCur||!dPool().includes(dCur)) nextQ(); else drawQ();
+}
+function nextQ(){ const p=dPool(); stopTimer(); if(!p.length){dCur=null; $("#dCard").innerHTML=`<div class="empty">这个范围里还没有题。先去语料卡里写点自己的回答或要点吧。</div>`; return}
+  let c; do{c=p[Math.floor(Math.random()*p.length)]}while(p.length>1&&c===dCur); dCur=c; drawQ(); }
+function drawQ(){ const x=dCur, s=SETS[x.si];
+  $("#dCard").innerHTML=`<div class="qcard"><span class="ref">${esc(shortZh(s))} Q${x.qi+1} · 语料卡 ${x.q[2]} ${esc(cname(x.q[2]))}${s.win.length>=2?` · 近两月 ${s.win.length} 次`:""}</span>
+   <p class="qbig en" lang="en">${esc(x.q[3])}</p>
+   <p class="qzh" id="dQzh" ${P.zh?"":"hidden"}>${esc(x.q[0])}</p>
+   ${CAN_TTS?`<div><button class="btn" id="dSay"><svg class="ic" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>听题</button></div>`:""}
+   <div class="timer"><div class="track"><div class="fill" id="dFill"></div></div><span class="tnum" id="dNum">45</span><button class="btn pri" id="dGo">开始 45 秒</button></div>
+   <div class="live" id="dLive" hidden><span class="dot"></span><span id="dLiveTxt">录音中</span></div>
+   <div class="asr" id="dAsr" hidden></div>
+   <div class="recbox" id="dRecBox" hidden></div>
+   <div class="reveal" id="dRev" hidden></div>
+   <div class="drill-actions"><button class="btn mine" id="dShow">看我的语料</button><button class="btn" id="dNext">下一题 →</button><button class="btn ghost" id="dEdit">去卡片编辑</button></div><div class="authline">授权给 ${esc(AUTH_NAME||("尾号 "+AUTH_TAIL))} · 请勿外传</div></div>`;
+  const say=$("#dSay"); if(say) say.onclick=()=>{ try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(x.q[3]); u.lang="en-US"; u.rate=0.95;
+      const v=speechSynthesis.getVoices().find(v=>/^en[-_]US/i.test(v.lang)); if(v) u.voice=v; speechSynthesis.speak(u);}catch(e){toast("这台设备暂时不能朗读")} };
+  $("#dGo").onclick=()=>dTimer?stopTimer(true):startTimer();
+  $("#dNext").onclick=nextQ; $("#dEdit").onclick=()=>openCard(x.q[2]);
+  $("#dShow").onclick=()=>{const r=$("#dRev"); if(!r.hidden){r.hidden=true; return} const n=note(x.q[2]), qn=(n.qnotes[x.key]||"").trim(), an=(n.answer||"").trim(); let h="";
+    if(qn) h+=`<span class="from">我的要点</span><div class="txt mine">${esc(qn)}</div>`;
+    if(an) h+=`<span class="from">我的回答 · ${x.q[2]} ${esc(cname(x.q[2]))}</span><div class="txt mine">${esc(an)}</div>`;
+    h+=`<span class="from">答题思路</span><div class="txt">→ ${esc(x.q[4]||"")}</div>`;
+    if(!an) h+=`<span class="from">示范语料（你还没写自己的版本）</span><div class="txt">${esc(CARDS[x.q[2]].model)}</div>`;
+    const items=n.items||[]; if(items.length) h+=`<span class="from">我的句子与词块</span><div class="txt">${items.map(i=>"· "+esc(i.en)).join("<br>")}</div>`;
+    r.innerHTML=h; r.hidden=false; };
+  showSaved(x.key);
+}
+async function showSaved(key){ const v=await recGet(key); if(!dCur||dCur.key!==key||rs) return; renderTake(key,v,true); }
+function fmtWhen(t){ const d=new Date(t); return `${d.getMonth()+1}月${d.getDate()}日 ${String(d.getHours()).padStart(2,"0")}:${String(d.getMinutes()).padStart(2,"0")}`; }
+function renderTake(key,v,old){ const box=$("#dRecBox"), as=$("#dAsr"); if(!box) return;
+  if(box.dataset.url){ try{URL.revokeObjectURL(box.dataset.url)}catch(e){} delete box.dataset.url; }
+  if(!v){ box.hidden=true; box.innerHTML=""; if(old&&as){as.hidden=true; as.innerHTML="";} return; }
+  const url=v.blob?URL.createObjectURL(v.blob):""; if(url) box.dataset.url=url;
+  const w=wordsOf(v.text||""), wpm=v.dur>3&&w?Math.round(w/(v.dur/60)):0;
+  box.innerHTML=`<span class="from">${old?"上次录音 · "+fmtWhen(v.at):"刚才的录音"} · ${Math.round(v.dur||0)} 秒</span>
+    ${url?`<audio controls preload="metadata" src="${url}"></audio>`:""}
+    <div class="drill-actions"><button class="btn ghost" id="dDel">删除这条录音</button></div>`;
+  box.hidden=false;
+  if(as){ if(v.text){ as.innerHTML=`<span class="from">语音转文字 · ${w} 词${wpm?` · 约 ${wpm} 词/分钟（目标 130 左右）`:""}</span><div class="txt" lang="en">${esc(v.text)}</div>`; as.hidden=false; }
+    else if(old){ as.hidden=true; as.innerHTML=""; } }
+  $("#dDel").onclick=async()=>{ await recDel(key); renderTake(key,null,true); toast("已删除录音"); };
+  const au=box.querySelector("audio"); if(au){ au.addEventListener("loadedmetadata",()=>{ if(au.duration===Infinity||isNaN(au.duration)){ const fix=()=>{ if(au.duration!==Infinity){ au.removeEventListener("durationchange",fix); au.currentTime=0; } }; au.addEventListener("durationchange",fix); au.currentTime=1e101; } },{once:true}); }
+}
+async function startTimer(){
+  const x=dCur; if(!x) return; const go=$("#dGo"); go.disabled=true;
+  try{ speechSynthesis&&speechSynthesis.cancel(); }catch(e){}
+  if(CAN_REC&&P.rec){ try{ await beginRecording(x); }catch(e){ rs=null; toast("没拿到麦克风权限，这次只计时"); } }
+  if(dCur!==x){ endRecording(); return; }
+  go.disabled=false; go.textContent="停止"; dLeft=45; dStart=Date.now(); tick();
+  dTimer=setInterval(()=>{dLeft--; tick(); if(dLeft<=0){ stopTimer(); $("#dNum").textContent="0"; toast("时间到"); try{navigator.vibrate&&navigator.vibrate(200)}catch(e){} }},1000);
+}
+function tick(){ const f=$("#dFill"); if(!f) return; f.style.width=((45-dLeft)/45*100)+"%"; f.classList.toggle("late",dLeft<=10); $("#dNum").textContent=Math.max(dLeft,0); }
+function stopTimer(manual){ const was=!!dTimer; if(dTimer){clearInterval(dTimer); dTimer=null}
+  const go=$("#dGo"); if(go&&(was||manual)){ go.textContent="再来一次"; go.disabled=false; }
+  endRecording(); }
+async function beginRecording(x){
+  const stream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:true,noiseSuppression:true}});
+  const types=["audio/webm;codecs=opus","audio/mp4","audio/webm","audio/ogg;codecs=opus"];
+  const mime=types.find(t=>{try{return MediaRecorder.isTypeSupported(t)}catch(e){return false}})||"";
+  const mr=mime?new MediaRecorder(stream,{mimeType:mime}):new MediaRecorder(stream);
+  const session={key:x.key,stream,mr,chunks:[],final:"",interim:"",asr:null,asrOn:false,ended:false,t0:Date.now()};
+  mr.ondataavailable=e=>{ if(e.data&&e.data.size) session.chunks.push(e.data) };
+  mr.onstop=()=>finishSession(session);
+  mr.start(1000); rs=session;
+  $("#dLive").hidden=false; $("#dLiveTxt").textContent="录音中"; const as=$("#dAsr"); as.hidden=true; as.innerHTML="";
+  const box=$("#dRecBox"); box.hidden=true;
+  if(SR&&P.asr){ try{ const r=new SR(); r.lang="en-US"; r.continuous=true; r.interimResults=true; session.asr=r; session.asrOn=true; let restarts=0;
+      r.onresult=e=>{ let interim=""; for(let i=e.resultIndex;i<e.results.length;i++){ const t=e.results[i][0].transcript; if(e.results[i].isFinal) session.final+=(session.final?" ":"")+t.trim(); else interim+=t; }
+        session.interim=interim; if(rs===session){ as.hidden=false; as.innerHTML=`<span class="from">语音转文字（识别中）</span><div class="txt" lang="en">${esc(session.final)} <span class="interim">${esc(interim)}</span></div>`; } };
+      r.onerror=e=>{ if(e.error==="not-allowed"||e.error==="service-not-allowed"||e.error==="language-not-supported"){ session.asrOn=false; if(rs===session) $("#dLiveTxt").textContent="录音中（这台设备暂时不能转文字）"; } };
+      r.onend=()=>{ if(session.asrOn&&!session.ended&&restarts<20){ restarts++; try{r.start()}catch(e){} } };
+      r.start(); }catch(e){ session.asr=null; } }
+}
+function endRecording(){ const s=rs; if(!s) return; rs=null; s.ended=true;
+  if(s.asr){ s.asrOn=false; try{s.asr.stop()}catch(e){} }
+  try{ if(s.mr.state!=="inactive") s.mr.stop(); else finishSession(s); }catch(e){ finishSession(s); }
+  const l=$("#dLive"); if(l) l.hidden=true; }
+async function finishSession(s){ if(s.done) return; s.done=true;
+  try{ s.stream.getTracks().forEach(t=>t.stop()); }catch(e){}
+  await new Promise(r=>setTimeout(r,600)); // let the last recognition result arrive
+  const text=(s.final+(s.interim?" "+s.interim:"")).replace(/\s+/g," ").trim();
+  const blob=s.chunks.length?new Blob(s.chunks,{type:(s.mr.mimeType||s.chunks[0].type||"audio/webm")}):null;
+  const dur=(Date.now()-s.t0)/1000;
+  if(!blob||dur<1){ return; }
+  const v={blob,text,dur,at:Date.now()};
+  const ok=await recSet(s.key,v);
+  if(dCur&&dCur.key===s.key) renderTake(s.key,v,false);
+  if(!ok) toast("录音只能这次回放，没能存到这台设备上");
+}
+
+/* ---------- bank ---------- */
+let bankFilter="all";
+function renderBank(){ let sets=SETS;
+  if(bankFilter==="hot") sets=sets.filter(s=>s.win.length>=2); else if(bankFilter!=="all") sets=sets.filter(s=>s.q.some(q=>q[1]===bankFilter));
+  $("#bank").innerHTML=sets.map(s=>`<div class="set"><div class="set-h"><h3>${esc(s.zh)}</h3><span class="en">${esc(s.t)}</span>${s.win.length>=2?`<span class="hotb">近两月 ${s.win.length} 次</span>`:""}${s.ext?`<span class="ext">${esc(s.ext)}</span>`:""}
+    <div class="dates">近两月：<b>${s.win.map(md).join(" · ")||"—"}</b>　累计 ${s.total} 次${s.total>s.win.length?`（更早：${s.d.filter(x=>x<WIN).map(md).join(" · ")}）`:""}</div></div>
+    <ol class="qs">${s.q.map(q=>`<li>${esc(q[0])}<span class="qmeta"><span class="tag">${FN[q[1]]}</span><button class="tag c golink" data-k="${q[2]}">${q[2]} ${esc(cname(q[2]))}</button></span><span class="orig">${esc(q[3])}</span></li>`).join("")}</ol></div>`).join(""); }
+$("#bank").addEventListener("click",e=>{const b=e.target.closest(".golink"); if(b) openCard(b.dataset.k)});
+$("#bankChips").innerHTML=[["all","全部"],["hot","近两月考过 2 次以上"],...Object.entries(FN)].map(([k,t],i)=>`<button class="chip" id="bc-${k}" aria-pressed="${i===0}" data-k="${k}">${t}</button>`).join("");
+$("#bankChips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;bankFilter=b.dataset.k;document.querySelectorAll("#bankChips .chip").forEach(x=>x.setAttribute("aria-pressed",x===b));renderBank()});
+
+/* ---------- mine ---------- */
+function saveBlob(name,text,type){ const b=new Blob([text],{type}); const u=URL.createObjectURL(b); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),4000); }
+function notesText(ks){ const lines=[]; for(const k of ks){const n=N[k]; lines.push(`【${k} ${cname(k)}】`); if((n.answer||"").trim()) lines.push(n.answer.trim(),"");
+  if((n.items||[]).length){lines.push("我的句子与词块："); n.items.forEach(i=>lines.push("- "+i.en+(i.zh?"（"+i.zh+"）":""))); lines.push("");}
+  const qn=Object.entries(n.qnotes||{}).filter(([q,v])=>(v||"").trim()); if(qn.length){lines.push("题目要点："); qn.forEach(([q,v])=>{const x=allQ.find(a=>a.key===q); lines.push("- "+(x?x.q[0]:q)); lines.push("  "+v.trim());}); lines.push("");}
+  lines.push("");} return lines.join("\n"); }
+function mergeNotes(inc){ let n=0; for(const [k,v] of Object.entries(inc||{})){ if(!v||typeof v!=="object") continue; const loc=N[k];
+    if(!loc||!hasContent(k)||(v.updatedAt||0)>(loc.updatedAt||0)){ N[k]={answer:String(v.answer||""),items:Array.isArray(v.items)?v.items.map(i=>({en:String(i.en||""),zh:String(i.zh||"")})).filter(i=>i.en):[],qnotes:Object.assign({},v.qnotes||{}),updatedAt:v.updatedAt||Date.now()}; n++; } }
+  saveLocal(); return n; }
+function renderMine(){ const ks=Object.keys(CARDS).filter(hasContent).sort((a,b)=>(N[b].updatedAt||0)-(N[a].updatedAt||0));
+  $("#v-mine").innerHTML=`<p class="intro">你的语料保存在这台设备的浏览器里，没网也能用。换手机、换浏览器或清理浏览器数据之前，先点「导出备份」存一份。</p><p class="hint" style="margin:-6px 0 14px">题库版本：${DATA_VER} · ${SETS.length} 组 · 联网打开会自动更新<br>授权给：${esc(AUTH_NAME||("邀请码尾号 "+AUTH_TAIL))} · 仅限本人使用，请勿外传 <button class="btn ghost" id="chgCode" style="padding:2px 6px;font-size:12px">更换邀请码</button></p>
+  <div class="drill-actions" style="margin:0 0 14px"><button class="btn pri" id="expJson">导出备份（.json）</button><label class="btn" for="impFile" style="display:inline-flex;align-items:center">导入备份</label><input type="file" id="impFile" accept=".json,application/json" hidden><button class="btn" id="expTxt">导出文本（.txt）</button></div>
+  ${ks.length?`<div class="mine-list">${ks.map(k=>{const n=N[k], qn=Object.values(n.qnotes||{}).filter(v=>(v||"").trim()).length;
+    return `<button class="mine-row" data-k="${k}"><span><span class="tk">${k}</span> <b>${esc(cname(k))}</b></span><span class="pv">${esc((n.answer||"").trim()||"（还没写整段回答）")}</span><span class="tm">${wordsOf(n.answer||"")} 词 · ${(n.items||[]).length} 条句子词块 · ${qn} 条题目要点</span></button>`}).join("")}</div>`
+   :`<div class="empty">你还没写自己的语料。去「语料卡」打开任意一张，在紫色框里写你的回答，或者点句型旁边的 ＋ 收藏。也可以点上面的「导入备份」，导入从 Claude 版导出的语料。</div>`}`;
+  $("#v-mine").querySelectorAll(".mine-row").forEach(b=>b.onclick=()=>openCard(b.dataset.k));
+  const cc=$("#chgCode"); if(cc) cc.onclick=()=>{ if(!cc.dataset.ok){cc.dataset.ok="1"; cc.textContent="再点一次确认（你写的语料不会丢）"; return} try{localStorage.removeItem(CODE_KEY)}catch(e){} location.reload(); };
+  $("#expJson").onclick=()=>{ const d=new Date(), stamp=`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`;
+    saveBlob(`托福语料备份-${stamp}.json`,JSON.stringify({kind:"toefl-notes",version:1,notes:N},null,1),"application/json"); toast("已导出备份"); };
+  $("#expTxt").onclick=()=>{ if(!ks.length){toast("还没有内容可以导出");return} saveBlob("托福面试我的语料.txt",notesText(ks),"text/plain;charset=utf-8"); };
+  $("#impFile").onchange=e=>{ const f=e.target.files&&e.target.files[0]; if(!f) return; const r=new FileReader();
+    r.onload=()=>{ try{ const j=JSON.parse(r.result); const inc=j&&j.kind==="toefl-notes"?j.notes:j; const n=mergeNotes(inc); toast(n?`已导入 ${n} 张卡的语料`:"备份里没有比现在更新的内容"); renderMine(); renderGrid(); }catch(err){ toast("这个文件读不了，请选导出的 .json 备份"); } };
+    r.readAsText(f); e.target.value=""; };
+}
+function refreshLists(){ if(view==="cards"&&!openK) renderGrid(); if(view==="mine") renderMine(); }
+
+/* ---------- guide ---------- */
+(function(){ const g=$("#guide"); if(!g) return; const sa=(window.matchMedia&&matchMedia("(display-mode: standalone)").matches)||navigator.standalone;
+  let seen=false; try{seen=localStorage.getItem("toefl-guide-seen")==="1"}catch(e){}
+  if(!sa&&!seen) g.open=true;
+  g.addEventListener("toggle",()=>{try{localStorage.setItem("toefl-guide-seen","1")}catch(e){}}); })();
+/* ---------- start ---------- */
+renderGrid(); renderBank();
+const h0=(location.hash||"").slice(1);
+if(CARDS[h0]) openCard(h0); else if(["drill","bank","mine"].includes(h0)) show(h0);
+setSync("ok","已保存在本机");
+}
+
+
+/* ---------- invite code unlock ---------- */
+const CODE_KEY="toefl-code";
+const ALPHA="23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+const normCode=s=>String(s||"").toUpperCase().replace(/[^0-9A-Z]/g,"");
+const fmtCode=s=>normCode(s).replace(/(.{4})(?=.)/g,"$1-");
+const b64d=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const hex=u=>Array.from(u,b=>b.toString(16).padStart(2,"0")).join("");
+let AUTH_NAME="", AUTH_TAIL="";
+async function unlockWith(code,box){
+  const c=normCode(code); if(c.length!==12) throw {why:"format"};
+  const km=await crypto.subtle.importKey("raw",new TextEncoder().encode(c),"PBKDF2",false,["deriveBits"]);
+  const bits=new Uint8Array(await crypto.subtle.deriveBits({name:"PBKDF2",salt:b64d(box.salt),iterations:box.iter,hash:"SHA-256"},km,320));
+  const id=hex(bits.slice(32,40)); const e=box.keys.find(k=>k.i===id); if(!e) throw {why:"nomatch"};
+  const kek=await crypto.subtle.importKey("raw",bits.slice(0,32),"AES-GCM",false,["decrypt"]);
+  const pay=JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:b64d(e.v)},kek,b64d(e.w))));
+  const dk=await crypto.subtle.importKey("raw",b64d(pay.k),"AES-GCM",false,["decrypt"]);
+  const D=JSON.parse(new TextDecoder().decode(await crypto.subtle.decrypt({name:"AES-GCM",iv:b64d(box.iv)},dk,b64d(box.ct))));
+  AUTH_NAME=pay.n||""; AUTH_TAIL=c.slice(-4); return D;
+}
+function showLock(msg){
+  const L=document.getElementById("lock"); L.hidden=false; document.body.classList.add("locked");
+  document.getElementById("synctxt").textContent="未解锁";
+  const m=document.getElementById("lockMsg"); m.textContent=msg||""; m.hidden=!msg;
+  const inp=document.getElementById("lockCode"); setTimeout(()=>inp.focus(),50);
+}
+function hideLock(){ document.getElementById("lock").hidden=true; document.body.classList.remove("locked"); }
+(async function boot(){
+  const fail=t=>{ document.querySelector("main").innerHTML='<div class="empty">'+t+'</div>'; document.getElementById("synctxt").textContent="载入失败"; };
+  if(!(window.crypto&&crypto.subtle)){ fail("这个浏览器太旧，打不开加密题库。请换成最新版的 Safari 或 Chrome。"); return; }
+  let box;
+  try{ const r=await fetch("data.enc.json",{cache:"no-cache"}); if(!r.ok) throw 0; box=await r.json(); }
+  catch(e){ fail("题库没加载出来。请联网后刷新一次。"); return; }
+  let started=false;
+  const go=async(code,fromSaved)=>{
+    try{ const D=await unlockWith(code,box); try{localStorage.setItem(CODE_KEY,normCode(code))}catch(e){}
+      hideLock(); if(!started){ started=true; startApp(D); } return true; }
+    catch(e){ if(fromSaved){ showLock("你的邀请码已失效或已更换，请输入新的邀请码。"); } else { showLock(e&&e.why==="format"?"邀请码是 12 位字母和数字，请检查一下。":"邀请码不对，或者已经被停用。"); } return false; }
+  };
+  const form=document.getElementById("lockForm"), inp=document.getElementById("lockCode"), btn=document.getElementById("lockGo");
+  inp.addEventListener("input",()=>{ const p=inp.selectionStart, before=inp.value; inp.value=fmtCode(inp.value).slice(0,14); if(document.activeElement===inp&&before.length===inp.value.length) inp.setSelectionRange(p,p); });
+  form.addEventListener("submit",async ev=>{ ev.preventDefault(); btn.disabled=true; btn.textContent="解锁中…"; await go(inp.value,false); btn.disabled=false; btn.textContent="解锁"; });
+  let saved=""; try{saved=localStorage.getItem(CODE_KEY)||""}catch(e){}
+  if(saved) await go(saved,true); else showLock("");
+})();
+if("serviceWorker" in navigator){ window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{})); }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "name": "托福面试语料库",
+  "short_name": "托福语料",
+  "description": "2026 新托福口语 Task 2 机经与个人语料库",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f3f5f4",
+  "theme_color": "#0f6b5f",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}
