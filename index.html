@@ -184,6 +184,123 @@ body.locked{overflow:hidden}
 .lock-card .btn.pri{padding:11px 14px;font-size:16px;margin-top:4px}
 .lock-foot{margin:4px 0 0;font-size:12px;color:var(--muted);text-align:center}
 .authline{font-size:11.5px;color:var(--muted);text-align:right}
+.tgl{appearance:none;border:1px solid var(--line);background:var(--paper);color:var(--muted);border-radius:999px;padding:3px 10px;font-size:12.5px;cursor:pointer;white-space:nowrap}
+.tgl[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--paper);font-weight:500}
+.tgl:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+@media (max-width:430px){#synctxt{display:none}.bar h1{font-size:16px}}
+.zhT{display:none}
+body.tr-zh .zhT{display:block}
+.zhT{color:var(--muted);font-size:13.5px;line-height:1.65}
+.zhblk{border-left:3px solid var(--line);padding:2px 0 2px 12px;margin:0 0 8px}
+.frames .zhT{font-size:12.5px;margin-top:1px}
+.orig+.zhT,.zq{margin-top:2px;font-size:13px}
+body.tr-dict [lang="en"]{cursor:pointer;text-decoration:underline dotted color-mix(in srgb,var(--muted) 45%,transparent);text-underline-offset:4px;text-decoration-thickness:1px}
+::highlight(lk){background-color:var(--hl);color:#2b1d00}
+.lk{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(var(--tabh) + 10px + env(safe-area-inset-bottom,0px));width:min(560px,calc(100vw - 24px));max-height:46vh;overflow:auto;background:var(--paper);border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:10px 14px 12px;z-index:25;box-sizing:border-box}
+.lk-h{display:flex;align-items:baseline;gap:8px}
+.lk-h b{font-size:19px}
+.lk-ph{font:13px var(--mono);color:var(--muted)}
+.lk-sp{flex:1}
+.lk-h .btn{font-size:16px;padding:2px 6px}
+.lk-b{font-size:14px}
+.lk-tr{margin:4px 0 0;padding-left:1.1em}
+.lk-base{margin:8px 0 0;font-size:12.5px;color:var(--muted)}
+.lk-none{margin:6px 0 0;color:var(--muted)}
+.notice{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--hl);border-radius:8px;padding:9px 12px;font-size:13px;color:var(--muted);margin:0 0 14px}
+.notice b{color:var(--ink)}
+input[type=search]{width:100%;box-sizing:border-box;font:inherit;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:9px 16px}
+input[type=search]:focus{outline:2px solid var(--accent);border-color:transparent}
+.cnum{font:11px var(--mono);opacity:.75;margin-left:2px}
+.mfam{margin:0 0 22px}
+.mfam-h{font-family:var(--display);font-size:17px;margin:0 0 8px;display:flex;align-items:baseline;gap:8px}
+.mfam-h span{font:500 12px var(--mono);color:var(--accent)}
+.mfam-h em{font-style:normal;font:400 12px var(--body);color:var(--muted)}
+.mcard{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin-bottom:10px;display:flex;flex-direction:column;gap:10px}
+.mhead{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
+.mhead b{font-family:var(--display);font-size:16px}
+.mmeta{font-size:11.5px;color:var(--muted);flex:1}
+.mhead .golink{color:var(--accent);padding:2px 4px}
+.mblk{border-top:1px dashed var(--line);padding-top:8px}
+.mblk .label{margin:0 0 4px}
+.mrow{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.mact{display:flex;flex-wrap:wrap;gap:4px;align-items:center}
+.mact .btn.ghost{padding:3px 8px;font-size:12.5px}
+.btn.warn{color:#c0392b!important;font-weight:500}
+.mtxt{white-space:pre-wrap;line-height:1.7;word-break:break-word}
+.mitems{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.mitems li{display:flex;gap:8px;align-items:flex-start;background:var(--mine-soft);border-radius:8px;padding:8px 10px}
+.mitems li>div{flex:1;min-width:0}
+.mitems li.editing{flex-direction:column;align-items:stretch}
+.mitems .en{font-weight:500;word-break:break-word}
+.mitems .zh{font-size:12.5px;color:var(--muted)}
+.mitems .mq{font-size:12.5px;color:var(--muted);margin-bottom:2px}
+.mitems .mtxt{font-size:14.5px}
+textarea.medit{min-height:120px;margin:4px 0 6px}
+textarea.small.medit{min-height:70px}
+.mitems li.editing input{margin-bottom:6px}
+mark{background:var(--hl-soft);color:var(--hl-ink);border-radius:3px;padding:0 1px}
+.madd{margin:0 0 14px;border-color:var(--mine);display:flex;flex-direction:column;gap:6px}
+.madd select,.sheet select{font:inherit;font-size:14px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:8px 10px;width:100%;box-sizing:border-box}
+.seg{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;margin:2px 0 6px}
+.seg.col{flex-direction:column;gap:6px}
+.seg label{display:flex;align-items:flex-start;gap:6px}
+.seg input{margin-top:5px}
+details.mset{margin-top:20px}
+details.mset p{margin:8px 0 0}
+.sheet-bg{position:fixed;inset:0;z-index:28;background:rgba(10,20,18,.45);display:flex;align-items:flex-end;justify-content:center}
+@media (min-width:640px){.sheet-bg{align-items:center}}
+.sheet{background:var(--paper);width:100%;max-width:520px;max-height:88vh;overflow:auto;border-radius:18px 18px 0 0;padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px));box-sizing:border-box}
+@media (min-width:640px){.sheet{border-radius:18px}}
+.sheet h3{font-family:var(--display);font-size:19px;margin:0 0 10px}
+.sheet .label{margin:12px 0 4px}
+.sheet .chips{margin:0}
+#printRoot{display:none}
+@media print{
+  @page{size:A4;margin:15mm 14mm}
+  body.printing{background:#fff!important;color:#111!important}
+  body.printing>*:not(#printRoot){display:none!important}
+  body.printing::before{display:none!important}
+  body.printing #printRoot{display:block;font:10.5pt/1.6 Georgia,"Times New Roman","Songti SC","SimSun",serif;color:#111}
+}
+#printRoot a{color:inherit;text-decoration:none}
+#printRoot h1{font:700 22pt/1.3 var(--display);color:#0f6b5f;margin:4pt 0 8pt}
+.p-cover{break-after:page}
+.p-kicker{font:9pt var(--mono);color:#5a6e6a;letter-spacing:.06em;margin:0}
+.p-stat{font-size:12pt;margin:0 0 6pt}
+.p-auth{font-weight:700;color:#7a4fb5;margin:6pt 0 14pt}
+.p-idx-h{font:700 14pt var(--display);color:#0f6b5f;border-bottom:1.5pt solid #0f6b5f;padding-bottom:3pt;margin:14pt 0 8pt}
+.p-idx{columns:2;column-gap:18pt}
+.p-idx-g{break-inside:avoid;margin:0 0 8pt}
+.p-idx-g a{display:block;font-size:10pt;line-height:1.55}
+.p-idx-f{font-weight:700;font-size:10.5pt!important;color:#0f6b5f!important;margin-bottom:1pt}
+.p-code{display:inline-block;min-width:22pt;font:600 9pt var(--mono);color:#0f6b5f}
+.p-code.big{font-size:12pt;min-width:30pt}
+.p-fam{break-before:page}
+.p-fam-h{font:700 17pt var(--display);color:#0f6b5f;border-bottom:2pt solid #0f6b5f;padding-bottom:4pt;margin:0 0 10pt}
+.p-fam-h span{font:600 12pt var(--mono);margin-right:8pt}
+.p-card{margin:0 0 16pt}
+.p-card h3{font:700 14pt var(--display);margin:0 0 4pt;border-bottom:.75pt solid #ccd6d3;padding-bottom:2pt;break-after:avoid}
+.p-lab{font:600 8.5pt var(--mono);letter-spacing:.06em;color:#5a6e6a;margin:8pt 0 3pt;break-after:avoid}
+.p-small{font-size:9pt;color:#5a6e6a;margin:0 0 4pt}
+.p-mine,.p-model{padding:5pt 9pt;border-left:2.5pt solid #7a4fb5;background:#f1eaf9;white-space:pre-wrap;line-height:1.7;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.p-model{border-color:#0f6b5f;background:#e8f2f0}
+.p-zh{font-size:9.5pt;color:#4a5c58;padding:3pt 9pt}
+.p-li{padding-left:10pt;text-indent:-8pt;margin:1pt 0;break-inside:avoid}
+.p-li::before{content:"• "}
+.p-sub{display:block;text-indent:0;font-size:9pt;color:#5a6e6a}
+.p-chunks{display:grid;grid-template-columns:1fr 1fr;gap:1pt 14pt;font-size:9.5pt}
+.p-q{margin:3pt 0 5pt;break-inside:avoid}
+.p-ref{font:600 8.5pt var(--mono);color:#0f6b5f}
+.p-tip{font-size:9pt;color:#0f6b5f}
+.p-note{font-size:9.5pt;background:#f1eaf9;padding:2pt 6pt;margin-top:2pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.p-tab{width:100%;border-collapse:collapse;font-size:9.5pt}
+.p-tab th,.p-tab td{border:.5pt solid #ccd6d3;padding:3pt 5pt;text-align:center}
+.p-tab td:first-child,.p-tab th:first-child{text-align:left}
+.p-tab th{background:#e1efec;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.p-tab tr{break-inside:avoid}
+.p-tab td{font:600 9.5pt var(--mono)}
+.p-tab td:first-child{font:inherit}
+.p-tab td.off{color:#aab5b2;font-weight:400}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 </head>
@@ -205,13 +322,16 @@ body.locked{overflow:hidden}
 <header class="bar"><div class="bar-in">
   <button class="backbtn" id="backbtn" hidden>← 返回</button>
   <h1 id="bartitle">托福面试语料库</h1>
+  <button class="tgl" id="tgZh" aria-pressed="false" title="把英文翻译成中文">中译</button>
+  <button class="tgl" id="tgDict" aria-pressed="false" title="点任意英文单词看释义">查词</button>
   <span class="sync" id="sync" data-s="local"><i></i><span id="synctxt">载入中</span></span>
 </div></header>
 
 <main>
   <section id="v-cards">
     <div id="cardsHome">
-      <p class="intro">2026 新托福口语 Task 2 近两个月机经，按「能共用一套素材」分成 30 张语料卡。点开一张卡，写你自己的回答、句子和每道题的要点，自动保存在这台设备上，没网也能用。</p>
+      <p class="intro">2026 新托福口语 Task 2 近两个月机经，按「能共用一套素材」分成 30 张语料卡。点开一张卡，写你自己的回答、句子和每道题的要点，自动保存在这台设备上，没网也能用。右上角「中译」显示中文翻译，「查词」打开后点任意英文单词看释义。</p>
+      <p class="notice"><b>题目说明：</b>题库里的题目都是考生考后回忆整理的，不是官方公布的原题，措辞和细节可能和真实考试有出入，仅供备考练习。</p>
       <div class="stats" id="stats"></div>
       <details class="about guide" id="guide"><summary>怎么打开和添加到主屏幕</summary>
         <div class="gsec"><h3>iPhone / iPad</h3>
@@ -228,7 +348,7 @@ body.locked{overflow:hidden}
           <ul><li>你写的语料只存在<b>这台设备、这个打开方式</b>里。在 iPhone 上，Safari 网页和主屏幕图标是分开存的，所以建议<b>先添加到主屏幕</b>，以后都从图标打开再开始写。</li>
           <li>换设备或想搬数据：到「我的」点 <b>导出备份</b>，到新的地方点 <b>导入备份</b>。</li>
           <li>背诵时录音，第一次会问麦克风权限，请点 <b>允许</b>。iPhone 转不出文字的话，到「设置」里检查 Siri 和听写有没有打开。</li>
-          <li>题库每周更新，联网打开就是最新的；没网时显示上次打开时的版本。</li><li>邀请码只给你本人使用。邀请码被停用后，下次更新就打不开了，你写的语料仍保存在手机里。</li></ul></div>
+          <li>题库每周更新，联网打开就是最新的；没网时显示上次打开时的版本。</li><li>「查词」第一次打开要下载约 1MB 的词典，之后没网也能用。</li><li>邀请码只给你本人使用。邀请码被停用后，下次更新就打不开了，你写的语料仍保存在手机里。</li></ul></div>
       </details>
       <div id="grid"></div>
     </div>
@@ -236,6 +356,7 @@ body.locked{overflow:hidden}
   </section>
   <section id="v-drill" hidden></section>
   <section id="v-bank" hidden>
+    <p class="notice"><b>题目说明：</b>题库里的题目都是考生考后回忆整理的，不是官方公布的原题，措辞和细节可能和真实考试有出入，仅供备考练习。</p>
     <div class="chips" id="bankChips"></div>
     <div id="bank"></div>
   </section>
@@ -249,11 +370,14 @@ body.locked{overflow:hidden}
   <button class="tb" role="tab" id="tb-mine" data-v="mine" aria-selected="false"><svg viewBox="0 0 24 24"><path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 6l3 3"/></svg>我的</button>
 </div></nav>
 <div class="toast" id="toast"></div>
+<div class="lk" id="lk" hidden role="dialog" aria-label="查词"></div>
 
 <script>
 function startApp(D){
 const {WIN,FAM,CARDS,MAP,FN}=D; const SETS=D.SETS;
 const DATA_VER=D.updated||"未标注";
+const ZH=Object.assign({q:{},model:{},frames:{}},D.ZH||{});
+const MISC="_misc";
 SETS.forEach(s=>{const m=MAP[s.t]; s.q.forEach((q,i)=>{if(m&&m[i]){q[2]=m[i][0]; q[4]=m[i][1];}}); s.win=s.d.filter(x=>x>=WIN).sort(); s.total=s.d.length});
 SETS.sort((a,b)=>b.win.length-a.win.length||b.total-a.total||(b.win.at(-1)||"").localeCompare(a.win.at(-1)||""));
 const $=s=>document.querySelector(s);
@@ -262,9 +386,71 @@ const md=d=>d.slice(5).replace("-",".");
 const allQ=[];SETS.forEach((s,si)=>s.q.forEach((q,qi)=>allQ.push({si,qi,q,key:s.t+"#"+qi})));
 const cardQs=k=>allQ.filter(x=>x.q[2]===k);
 const cardHot=k=>new Set(cardQs(k).filter(x=>SETS[x.si].win.length>=2).map(x=>x.si)).size;
-const cname=k=>CARDS[k]?CARDS[k].t:k;
+const cname=k=>k===MISC?"其他语料":CARDS[k]?CARDS[k].t:k;
 const shortZh=s=>s.zh.replace(/（.*/,"");
 function toast(t){const el=$("#toast");el.textContent=t;el.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>el.classList.remove("on"),1800)}
+
+/* ---------- translation & word lookup ---------- */
+const TRK="toefl-tr-prefs";
+let TR={zh:false,dict:false}; try{Object.assign(TR,JSON.parse(localStorage.getItem(TRK)||"{}"))}catch(e){}
+function applyTR(){ document.body.classList.toggle("tr-zh",!!TR.zh); document.body.classList.toggle("tr-dict",!!TR.dict);
+  const a=$("#tgZh"), b=$("#tgDict"); if(a) a.setAttribute("aria-pressed",!!TR.zh); if(b) b.setAttribute("aria-pressed",!!TR.dict);
+  const pz=$("#pZh"); if(pz) pz.checked=!!TR.zh; if(!TR.dict) closeLk(); }
+function setTR(k,v){ TR[k]=v; try{localStorage.setItem(TRK,JSON.stringify(TR))}catch(e){} applyTR(); }
+$("#tgZh").onclick=()=>{ setTR("zh",!TR.zh); toast(TR.zh?"已显示中文翻译":"已隐藏中文翻译"); };
+$("#tgDict").onclick=()=>{ setTR("dict",!TR.dict); if(TR.dict){ loadDict(); toast("点词查义已开启：点任意英文单词"); } else toast("点词查义已关闭"); };
+let DICT=null, dictP=null;
+function loadDict(){ if(!dictP) dictP=fetch("dict.json").then(r=>{if(!r.ok) throw 0; return r.json()}).then(j=>(DICT=j)).catch(e=>{dictP=null; throw e}); return dictP; }
+const IRR={"can't":"can","won't":"will","shan't":"shall","ain't":"be","i'm":"i","couldn":"could","didn":"do","doesn":"does","shouldn":"should","wouldn":"would","isn":"is","aren":"are","wasn":"was","weren":"were","hasn":"has","haven":"have","hadn":"had"};
+function lemmas(w){ const L=DICT.l||{}, out=[w], known=!!DICT.w[w]; const add=x=>{ if(x&&x.length>1&&!out.includes(x)) out.push(x) };
+  if(L[w]) add(L[w]);
+  const dbl=s=>s.length>2&&s.at(-1)===s.at(-2)?s.slice(0,-1):null;
+  if(/ies$/.test(w)) add(w.slice(0,-3)+"y");
+  if(/ied$/.test(w)) add(w.slice(0,-3)+"y");
+  if(/es$/.test(w)) add(w.slice(0,-2));
+  if(/s$/.test(w)&&!/ss$/.test(w)) add(w.slice(0,-1));
+  if(/ed$/.test(w)){ const b=w.slice(0,-2); add(b); add(w.slice(0,-1)); add(dbl(b)); }
+  if(/ing$/.test(w)){ const b=w.slice(0,-3); add(b); add(b+"e"); add(dbl(b)); }
+  if(!known&&/ier$|iest$/.test(w)) add(w.replace(/ier$|iest$/,"y"));
+  if(!known&&/er$/.test(w)){ const b=w.slice(0,-2); add(b); add(b+"e"); add(dbl(b)); }
+  if(!known&&/est$/.test(w)){ const b=w.slice(0,-3); add(b); add(b+"e"); add(dbl(b)); }
+  if(!known&&/ily$/.test(w)) add(w.slice(0,-3)+"y");
+  if(!known&&/ly$/.test(w)) add(w.slice(0,-2));
+  return out; }
+function lookupWord(raw){ const W=DICT.w; let w=raw.toLowerCase().replace(/[’‘]/g,"'").replace(/^[-']+|[-']+$/g,"");
+  if(IRR[w]) w=IRR[w]; w=w.replace(/'(s|re|ve|ll|d|m)$/,"").replace(/n't$/,""); if(IRR[w]) w=IRR[w];
+  const res=[]; for(const c of lemmas(w)){ if(W[c]){ res.push([c,W[c]]); if(res.length>=2) break; } }
+  if(!res.length&&w.includes("-")) for(const part of w.split("-")) for(const c of lemmas(part)) if(W[c]&&!res.some(r=>r[0]===c)){ res.push([c,W[c]]); break; }
+  return {w,res}; }
+function wordAt(x,y){ let node,off;
+  try{ if(document.caretPositionFromPoint){ const p=document.caretPositionFromPoint(x,y); if(!p) return null; node=p.offsetNode; off=p.offset; }
+    else if(document.caretRangeFromPoint){ const r=document.caretRangeFromPoint(x,y); if(!r) return null; node=r.startContainer; off=r.startOffset; } else return null; }catch(e){ return null; }
+  if(!node||node.nodeType!==3) return null; const t=node.textContent, isW=c=>!!c&&/[A-Za-z'’-]/.test(c);
+  let s=off,e=off; while(s>0&&isW(t[s-1])) s--; while(e<t.length&&isW(t[e])) e++;
+  while(s<e&&/['’-]/.test(t[s])) s++; while(e>s&&/['’-]/.test(t[e-1])) e--;
+  if(e-s<1||!/[A-Za-z]/.test(t.slice(s,e))) return null;
+  // make sure the tap really landed on this word, not on blank space next to it
+  try{ const r=document.createRange(); r.setStart(node,s); r.setEnd(node,e); const ok=[...r.getClientRects()].some(b=>x>=b.left-3&&x<=b.right+3&&y>=b.top-3&&y<=b.bottom+3); if(!ok) return null; return {w:t.slice(s,e),range:r}; }catch(e2){ return {w:t.slice(s,e),range:null}; } }
+function closeLk(){ const p=$("#lk"); if(p) p.hidden=true; try{ CSS.highlights&&CSS.highlights.delete("lk"); }catch(e){} }
+function speak(t){ try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(t); u.lang="en-US"; u.rate=0.9; const v=speechSynthesis.getVoices().find(v=>/^en[-_]US/i.test(v.lang)); if(v) u.voice=v; speechSynthesis.speak(u); }catch(e){ toast("这台设备暂时不能朗读"); } }
+async function showLk(hit){ const p=$("#lk");
+  try{ if(hit.range&&window.Highlight&&CSS.highlights) CSS.highlights.set("lk",new Highlight(hit.range)); }catch(e){}
+  p.hidden=false; p.innerHTML=`<div class="lk-h"><b lang="en">${esc(hit.w)}</b><span class="lk-ph"></span><span class="lk-sp"></span>${CAN_TTS?`<button class="btn ghost" id="lkSay" aria-label="朗读">🔊</button>`:""}<button class="btn ghost" id="lkX" aria-label="关闭">×</button></div><div class="lk-b">词典载入中…</div>`;
+  $("#lkX").onclick=closeLk; const s=$("#lkSay"); if(s) s.onclick=()=>speak(hit.w);
+  try{ await loadDict(); }catch(e){ p.querySelector(".lk-b").textContent="词典没加载出来，联网后再试一次。"; return; }
+  if(p.hidden) return; const {res}=lookupWord(hit.w);
+  if(!res.length){ p.querySelector(".lk-b").innerHTML=`<p class="lk-none">词典里没找到这个词（人名、地名或拼写变体）。</p>`; return; }
+  const ph=res[0][1].length>1?res[0][1][0]:""; p.querySelector(".lk-ph").textContent=ph?`/${ph}/`:"";
+  p.querySelector(".lk-b").innerHTML=res.map(([w,v],i)=>{ const tr=v.length>1?v[1]:v[0];
+    return `${w!==hit.w.toLowerCase().replace(/’/g,"'")?`<p class="lk-base">原形 <b lang="en">${esc(w)}</b>${i&&v.length>1&&v[0]?` /${esc(v[0])}/`:""}</p>`:""}<ul class="lk-tr">${tr.split(/[；;\n]\s*/).filter(Boolean).map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`}).join(""); }
+document.addEventListener("click",e=>{ if(!TR.dict) return; const lk=$("#lk");
+  if(lk&&lk.contains(e.target)) return;
+  const host=e.target.closest&&e.target.closest('[lang="en"]');
+  if(!host||e.target.closest("button,a,textarea,input,select,summary,label")){ closeLk(); return; }
+  if(String(window.getSelection&&window.getSelection())) return;
+  const hit=wordAt(e.clientX,e.clientY); if(!hit){ closeLk(); return; }
+  e.preventDefault(); showLk(hit); },true);
+const zhQ=x=>(ZH.q&&ZH.q[x.key])||x.q[0];
 
 /* ---------- my notes: stored in this browser ---------- */
 const LS="toefl-notes-v1";
@@ -318,13 +504,13 @@ function renderDetail(k){
      <ul class="items" id="myItems"></ul>
      <div class="addrow"><input type="text" id="itEn" placeholder="英文句子或词块" autocomplete="off"><input type="text" id="itZh" placeholder="中文备注（可选）" autocomplete="off"><button class="btn pri" id="itAdd">添加</button></div>
    </section>
-   <section class="blk"><p class="label">示范语料 · ${wordsOf(c.model)} 词</p><div class="model">${esc(c.model)}</div><p class="hint">样例细节是编的，背之前换成你自己的。</p></section>
-   <section class="blk"><p class="label">句型 · 点 ＋ 收进我的句子</p><ul class="frames">${c.frames.map((f,i)=>`<li>${esc(f).replace(/___/g,'<span class="gap">___</span>')} <button class="btn ghost addf" data-i="${i}" aria-label="收藏这个句型">＋</button></li>`).join("")}</ul></section>
-   <section class="blk"><p class="label">词块 · 点 ＋ 收进我的句子</p><dl class="chunkl">${c.chunks.map(([e,z],i)=>`<div><dt>${esc(e)} <button class="btn ghost addc" data-i="${i}" aria-label="收藏这个词块">＋</button></dt><dd>${esc(z)}</dd></div>`).join("")}</dl></section>
+   <section class="blk"><p class="label">示范语料 · ${wordsOf(c.model)} 词</p><div class="model" lang="en">${esc(c.model)}</div>${ZH.model[k]?`<div class="zhT zhblk">${esc(ZH.model[k])}</div>`:""}<p class="hint">样例细节是编的，背之前换成你自己的。</p></section>
+   <section class="blk"><p class="label">句型 · 点 ＋ 收进我的句子</p><ul class="frames">${c.frames.map((f,i)=>`<li><span lang="en">${esc(f).replace(/___/g,'<span class="gap">___</span>')}</span> <button class="btn ghost addf" data-i="${i}" aria-label="收藏这个句型">＋</button>${(ZH.frames[k]||[])[i]?`<span class="zhT">${esc(ZH.frames[k][i])}</span>`:""}</li>`).join("")}</ul></section>
+   <section class="blk"><p class="label">词块 · 点 ＋ 收进我的句子</p><dl class="chunkl">${c.chunks.map(([e,z],i)=>`<div><dt><span lang="en">${esc(e)}</span> <button class="btn ghost addc" data-i="${i}" aria-label="收藏这个词块">＋</button></dt><dd>${esc(z)}</dd></div>`).join("")}</dl></section>
    <section class="blk"><p class="label">考到这些题时怎么用</p><ol class="useq">${qs.map(x=>{const s=SETS[x.si];const has=(n.qnotes[x.key]||"").trim();
      return `<li><div class="uh"><span class="ref">${esc(shortZh(s))} Q${x.qi+1}</span>${s.win.length>=2?`<em class="pill hot">近两月 ${s.win.length} 次</em>`:""}</div>
      <p class="uq">${esc(x.q[0])}</p><p class="ua">→ ${esc(x.q[4]||"")}</p>
-     <details class="en"><summary>英文原题</summary><span class="orig">${esc(x.q[3])}</span></details>
+     <details class="en"><summary>英文原题</summary><span class="orig" lang="en">${esc(x.q[3])}</span><span class="zhT">${esc(zhQ(x))}</span></details>
      <div class="qnote">${has?"":`<button class="btn ghost qopen" data-q="${esc(x.key)}">＋ 写我的要点</button>`}<textarea class="small qta" data-q="${esc(x.key)}" placeholder="我的要点：这题打算怎么答" ${has?"":"hidden"}></textarea></div></li>`}).join("")}</ol></section>
   </div>`;
   const ta=$("#myAns"); ta.value=n.answer; $("#wc").textContent=wcText(n.answer);
@@ -342,7 +528,7 @@ function renderDetail(k){
   $("#detail").querySelectorAll(".qopen").forEach(b=>b.onclick=()=>{const t=b.nextElementSibling; t.hidden=false; b.remove(); t.focus()});
 }
 function renderItems(k){ const it=note(k).items, ul=$("#myItems"); if(!ul) return;
-  ul.innerHTML=it.length?it.map((x,i)=>`<li><div><div class="en">${esc(x.en)}</div>${x.zh?`<div class="zh">${esc(x.zh)}</div>`:""}</div><button data-i="${i}" aria-label="删除">×</button></li>`).join(""):`<li style="background:none;padding:0;color:var(--muted);font-size:13px">还没有。可以在下面输入，或者点句型、词块旁边的 ＋。</li>`;
+  ul.innerHTML=it.length?it.map((x,i)=>`<li><div><div class="en" lang="en">${esc(x.en)}</div>${x.zh?`<div class="zh">${esc(x.zh)}</div>`:""}</div><button data-i="${i}" aria-label="删除">×</button></li>`).join(""):`<li style="background:none;padding:0;color:var(--muted);font-size:13px">还没有。可以在下面输入，或者点句型、词块旁边的 ＋。</li>`;
   ul.querySelectorAll("button[data-i]").forEach(b=>b.onclick=()=>{note(k).items.splice(+b.dataset.i,1); touch(k); renderItems(k)}); }
 function refreshCard(k){ if(openK!==k||$("#detail").hidden) return; const n=note(k);
   const ta=$("#myAns"); if(ta&&document.activeElement!==ta&&ta.value!==n.answer){ta.value=n.answer; $("#wc").textContent=wcText(n.answer)}
@@ -351,7 +537,7 @@ function refreshCard(k){ if(openK!==k||$("#detail").hidden) return; const n=note
 
 /* ---------- drill (English first, record, playback, speech-to-text) ---------- */
 const PREF="toefl-drill-prefs";
-let P={zh:false,rec:true,asr:true}; try{Object.assign(P,JSON.parse(localStorage.getItem(PREF)||"{}"))}catch(e){}
+let P={rec:true,asr:true}; try{Object.assign(P,JSON.parse(localStorage.getItem(PREF)||"{}"))}catch(e){}
 const savePref=()=>{try{localStorage.setItem(PREF,JSON.stringify(P))}catch(e){}};
 const SR=window.SpeechRecognition||window.webkitSpeechRecognition||null;
 const CAN_REC=!!(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&window.MediaRecorder);
@@ -371,14 +557,14 @@ function renderDrill(){
   const opts=[["hot","近两月高频题"],["all","全部 "+allQ.length+" 题"],["mine","我写过语料的题"],...Object.keys(CARDS).map(k=>[k,k+" "+cname(k)])];
   $("#v-drill").innerHTML=`<div class="drill-top"><select id="dFilter" aria-label="抽题范围">${opts.map(([v,t])=>`<option value="${v}" ${v===dFilter?"selected":""}>${esc(t)}</option>`).join("")}</select></div>
    <div class="toggles">
-     <label><input type="checkbox" id="pZh" ${P.zh?"checked":""}> 显示中文意思</label>
+     <label><input type="checkbox" id="pZh" ${TR.zh?"checked":""}> 显示中文翻译</label>
      ${CAN_REC?`<label><input type="checkbox" id="pRec" ${P.rec?"checked":""}> 答题时录音</label>`:""}
      ${SR&&CAN_REC?`<label><input type="checkbox" id="pAsr" ${P.asr?"checked":""}> 语音转文字</label>`:""}
    </div>
    ${CAN_REC?"":`<p class="hint" style="margin:0 0 10px">这个浏览器不支持录音，只能计时。换成 Safari 或 Chrome 打开就可以录音。</p>`}
    <div id="dCard"></div>`;
   $("#dFilter").onchange=e=>{dFilter=e.target.value; nextQ()};
-  $("#pZh").onchange=e=>{P.zh=e.target.checked; savePref(); const z=$("#dQzh"); if(z) z.hidden=!P.zh};
+  $("#pZh").onchange=e=>setTR("zh",e.target.checked);
   const pr=$("#pRec"); if(pr) pr.onchange=e=>{P.rec=e.target.checked; savePref()};
   const pa=$("#pAsr"); if(pa) pa.onchange=e=>{P.asr=e.target.checked; savePref()};
   if(!dCur||!dPool().includes(dCur)) nextQ(); else drawQ();
@@ -388,7 +574,7 @@ function nextQ(){ const p=dPool(); stopTimer(); if(!p.length){dCur=null; $("#dCa
 function drawQ(){ const x=dCur, s=SETS[x.si];
   $("#dCard").innerHTML=`<div class="qcard"><span class="ref">${esc(shortZh(s))} Q${x.qi+1} · 语料卡 ${x.q[2]} ${esc(cname(x.q[2]))}${s.win.length>=2?` · 近两月 ${s.win.length} 次`:""}</span>
    <p class="qbig en" lang="en">${esc(x.q[3])}</p>
-   <p class="qzh" id="dQzh" ${P.zh?"":"hidden"}>${esc(x.q[0])}</p>
+   <p class="qzh zhT" id="dQzh">${esc(zhQ(x))}</p>
    ${CAN_TTS?`<div><button class="btn" id="dSay"><svg class="ic" viewBox="0 0 24 24"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a7.5 7.5 0 0 1 0 11"/></svg>听题</button></div>`:""}
    <div class="timer"><div class="track"><div class="fill" id="dFill"></div></div><span class="tnum" id="dNum">45</span><button class="btn pri" id="dGo">开始 45 秒</button></div>
    <div class="live" id="dLive" hidden><span class="dot"></span><span id="dLiveTxt">录音中</span></div>
@@ -401,11 +587,11 @@ function drawQ(){ const x=dCur, s=SETS[x.si];
   $("#dGo").onclick=()=>dTimer?stopTimer(true):startTimer();
   $("#dNext").onclick=nextQ; $("#dEdit").onclick=()=>openCard(x.q[2]);
   $("#dShow").onclick=()=>{const r=$("#dRev"); if(!r.hidden){r.hidden=true; return} const n=note(x.q[2]), qn=(n.qnotes[x.key]||"").trim(), an=(n.answer||"").trim(); let h="";
-    if(qn) h+=`<span class="from">我的要点</span><div class="txt mine">${esc(qn)}</div>`;
-    if(an) h+=`<span class="from">我的回答 · ${x.q[2]} ${esc(cname(x.q[2]))}</span><div class="txt mine">${esc(an)}</div>`;
+    if(qn) h+=`<span class="from">我的要点</span><div class="txt mine" lang="en">${esc(qn)}</div>`;
+    if(an) h+=`<span class="from">我的回答 · ${x.q[2]} ${esc(cname(x.q[2]))}</span><div class="txt mine" lang="en">${esc(an)}</div>`;
     h+=`<span class="from">答题思路</span><div class="txt">→ ${esc(x.q[4]||"")}</div>`;
-    if(!an) h+=`<span class="from">示范语料（你还没写自己的版本）</span><div class="txt">${esc(CARDS[x.q[2]].model)}</div>`;
-    const items=n.items||[]; if(items.length) h+=`<span class="from">我的句子与词块</span><div class="txt">${items.map(i=>"· "+esc(i.en)).join("<br>")}</div>`;
+    if(!an) h+=`<span class="from">示范语料（你还没写自己的版本）</span><div class="txt" lang="en">${esc(CARDS[x.q[2]].model)}</div>${ZH.model[x.q[2]]?`<div class="txt zhT">${esc(ZH.model[x.q[2]])}</div>`:""}`;
+    const items=n.items||[]; if(items.length) h+=`<span class="from">我的句子与词块</span><div class="txt" lang="en">${items.map(i=>"· "+esc(i.en)).join("<br>")}</div>`;
     r.innerHTML=h; r.hidden=false; };
   showSaved(x.key);
 }
@@ -478,35 +664,285 @@ function renderBank(){ let sets=SETS;
   if(bankFilter==="hot") sets=sets.filter(s=>s.win.length>=2); else if(bankFilter!=="all") sets=sets.filter(s=>s.q.some(q=>q[1]===bankFilter));
   $("#bank").innerHTML=sets.map(s=>`<div class="set"><div class="set-h"><h3>${esc(s.zh)}</h3><span class="en">${esc(s.t)}</span>${s.win.length>=2?`<span class="hotb">近两月 ${s.win.length} 次</span>`:""}${s.ext?`<span class="ext">${esc(s.ext)}</span>`:""}
     <div class="dates">近两月：<b>${s.win.map(md).join(" · ")||"—"}</b>　累计 ${s.total} 次${s.total>s.win.length?`（更早：${s.d.filter(x=>x<WIN).map(md).join(" · ")}）`:""}</div></div>
-    <ol class="qs">${s.q.map(q=>`<li>${esc(q[0])}<span class="qmeta"><span class="tag">${FN[q[1]]}</span><button class="tag c golink" data-k="${q[2]}">${q[2]} ${esc(cname(q[2]))}</button></span><span class="orig">${esc(q[3])}</span></li>`).join("")}</ol></div>`).join(""); }
+    <ol class="qs">${s.q.map((q,qi)=>`<li>${esc(q[0])}<span class="qmeta"><span class="tag">${FN[q[1]]}</span><button class="tag c golink" data-k="${q[2]}">${q[2]} ${esc(cname(q[2]))}</button></span><span class="orig" lang="en">${esc(q[3])}</span><span class="zhT zq">${esc(ZH.q[s.t+"#"+qi]||"")}</span></li>`).join("")}</ol></div>`).join(""); }
 $("#bank").addEventListener("click",e=>{const b=e.target.closest(".golink"); if(b) openCard(b.dataset.k)});
 $("#bankChips").innerHTML=[["all","全部"],["hot","近两月考过 2 次以上"],...Object.entries(FN)].map(([k,t],i)=>`<button class="chip" id="bc-${k}" aria-pressed="${i===0}" data-k="${k}">${t}</button>`).join("");
 $("#bankChips").addEventListener("click",e=>{const b=e.target.closest(".chip");if(!b)return;bankFilter=b.dataset.k;document.querySelectorAll("#bankChips .chip").forEach(x=>x.setAttribute("aria-pressed",x===b));renderBank()});
 
-/* ---------- mine ---------- */
-function saveBlob(name,text,type){ const b=new Blob([text],{type}); const u=URL.createObjectURL(b); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),4000); }
-function notesText(ks){ const lines=[]; for(const k of ks){const n=N[k]; lines.push(`【${k} ${cname(k)}】`); if((n.answer||"").trim()) lines.push(n.answer.trim(),"");
+/* ---------- mine: my corpus manager ---------- */
+function saveBlob(name,text,type){ saveFile(name,new Blob([text],{type})); }
+function saveFile(name,b){ const u=URL.createObjectURL(b); const a=document.createElement("a"); a.href=u; a.download=name; document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(u),8000); }
+const stamp=()=>{const d=new Date(); return `${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`};
+const allKeys=()=>[...Object.keys(CARDS),MISC];
+const famOf=k=>k===MISC?"Z":k[0];
+const famName=f=>f==="Z"?"其他语料":FAM[f];
+const FAMS=()=>[...Object.keys(FAM),"Z"];
+const qByKey=key=>allQ.find(a=>a.key===key);
+const qref=x=>`${shortZh(SETS[x.si])} Q${x.qi+1}`;
+function notesText(ks){ const lines=[]; for(const k of ks){const n=N[k]; lines.push(`【${k===MISC?"":k+" "}${cname(k)}】`); if((n.answer||"").trim()) lines.push(n.answer.trim(),"");
   if((n.items||[]).length){lines.push("我的句子与词块："); n.items.forEach(i=>lines.push("- "+i.en+(i.zh?"（"+i.zh+"）":""))); lines.push("");}
-  const qn=Object.entries(n.qnotes||{}).filter(([q,v])=>(v||"").trim()); if(qn.length){lines.push("题目要点："); qn.forEach(([q,v])=>{const x=allQ.find(a=>a.key===q); lines.push("- "+(x?x.q[0]:q)); lines.push("  "+v.trim());}); lines.push("");}
+  const qn=Object.entries(n.qnotes||{}).filter(([q,v])=>(v||"").trim()); if(qn.length){lines.push("题目要点："); qn.forEach(([q,v])=>{const x=qByKey(q); lines.push("- "+(x?x.q[0]:q)); lines.push("  "+v.trim());}); lines.push("");}
   lines.push("");} return lines.join("\n"); }
 function mergeNotes(inc){ let n=0; for(const [k,v] of Object.entries(inc||{})){ if(!v||typeof v!=="object") continue; const loc=N[k];
     if(!loc||!hasContent(k)||(v.updatedAt||0)>(loc.updatedAt||0)){ N[k]={answer:String(v.answer||""),items:Array.isArray(v.items)?v.items.map(i=>({en:String(i.en||""),zh:String(i.zh||"")})).filter(i=>i.en):[],qnotes:Object.assign({},v.qnotes||{}),updatedAt:v.updatedAt||Date.now()}; n++; } }
   saveLocal(); return n; }
-function renderMine(){ const ks=Object.keys(CARDS).filter(hasContent).sort((a,b)=>(N[b].updatedAt||0)-(N[a].updatedAt||0));
-  $("#v-mine").innerHTML=`<p class="intro">你的语料保存在这台设备的浏览器里，没网也能用。换手机、换浏览器或清理浏览器数据之前，先点「导出备份」存一份。</p><p class="hint" style="margin:-6px 0 14px">题库版本：${DATA_VER} · ${SETS.length} 组 · 联网打开会自动更新<br>授权给：${esc(AUTH_NAME||("邀请码尾号 "+AUTH_TAIL))} · 仅限本人使用，请勿外传 <button class="btn ghost" id="chgCode" style="padding:2px 6px;font-size:12px">更换邀请码</button></p>
-  <div class="drill-actions" style="margin:0 0 14px"><button class="btn pri" id="expJson">导出备份（.json）</button><label class="btn" for="impFile" style="display:inline-flex;align-items:center">导入备份</label><input type="file" id="impFile" accept=".json,application/json" hidden><button class="btn" id="expTxt">导出文本（.txt）</button></div>
-  ${ks.length?`<div class="mine-list">${ks.map(k=>{const n=N[k], qn=Object.values(n.qnotes||{}).filter(v=>(v||"").trim()).length;
-    return `<button class="mine-row" data-k="${k}"><span><span class="tk">${k}</span> <b>${esc(cname(k))}</b></span><span class="pv">${esc((n.answer||"").trim()||"（还没写整段回答）")}</span><span class="tm">${wordsOf(n.answer||"")} 词 · ${(n.items||[]).length} 条句子词块 · ${qn} 条题目要点</span></button>`}).join("")}</div>`
-   :`<div class="empty">你还没写自己的语料。去「语料卡」打开任意一张，在紫色框里写你的回答，或者点句型旁边的 ＋ 收藏。也可以点上面的「导入备份」，导入从 Claude 版导出的语料。</div>`}`;
-  $("#v-mine").querySelectorAll(".mine-row").forEach(b=>b.onclick=()=>openCard(b.dataset.k));
-  const cc=$("#chgCode"); if(cc) cc.onclick=()=>{ if(!cc.dataset.ok){cc.dataset.ok="1"; cc.textContent="再点一次确认（你写的语料不会丢）"; return} try{localStorage.removeItem(CODE_KEY)}catch(e){} location.reload(); };
-  $("#expJson").onclick=()=>{ const d=new Date(), stamp=`${d.getFullYear()}${String(d.getMonth()+1).padStart(2,"0")}${String(d.getDate()).padStart(2,"0")}`;
-    saveBlob(`托福语料备份-${stamp}.json`,JSON.stringify({kind:"toefl-notes",version:1,notes:N},null,1),"application/json"); toast("已导出备份"); };
-  $("#expTxt").onclick=()=>{ if(!ks.length){toast("还没有内容可以导出");return} saveBlob("托福面试我的语料.txt",notesText(ks),"text/plain;charset=utf-8"); };
+function mStats(){ let cards=0,ans=0,it=0,qn=0,words=0; for(const k of allKeys()){ if(!hasContent(k)) continue; cards++; const n=N[k];
+    if((n.answer||"").trim()){ans++; words+=wordsOf(n.answer)} it+=(n.items||[]).length; qn+=Object.values(n.qnotes||{}).filter(v=>(v||"").trim()).length; } return {cards,ans,it,qn,words}; }
+let mQ="", mF="all", mEdit="", mAddK="", mAddT="i";
+const reEsc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
+function hl(t){ const h=esc(t); if(!mQ.trim()) return h; return h.replace(new RegExp(reEsc(esc(mQ.trim())),"gi"),m=>`<mark>${m}</mark>`); }
+function cardMatches(k){ const q=mQ.trim().toLowerCase(); if(!q) return true; const n=N[k];
+  const hay=[cname(k),k,n.answer||"",...(n.items||[]).flatMap(i=>[i.en,i.zh]),...Object.entries(n.qnotes||{}).flatMap(([key,v])=>{const x=qByKey(key); return [v,x?x.q[0]:"",x?x.q[3]:""]})].join("\n").toLowerCase();
+  return hay.includes(q); }
+function cardOpts(sel){ return FAMS().map(f=>{ const ks=f==="Z"?[MISC]:Object.keys(CARDS).filter(k=>k[0]===f);
+  return `<optgroup label="${f==="Z"?"":f+" "}${esc(famName(f))}">${ks.map(k=>`<option value="${k}" ${k===sel?"selected":""}>${k===MISC?"其他（不属于任何卡）":k+" "+esc(cname(k))}</option>`).join("")}</optgroup>`}).join(""); }
+
+function renderMine(){
+  $("#v-mine").innerHTML=`<p class="intro">这里集中管理你自己写的语料，按类别排好。可以直接改、删，也可以新增；改完自动保存在这台设备上。</p>
+  <div class="stats" id="mStats"></div>
+  <div class="drill-actions" style="margin:0 0 12px"><button class="btn pri" id="mExport">一键导出打印版（PDF / Word）</button><button class="btn mine" id="mAddBtn">＋ 新增语料</button></div>
+  <div id="mAdd" hidden></div>
+  <input type="search" id="mSearch" placeholder="搜索我的语料（英文、中文、题目都可以）" value="${esc(mQ)}" autocomplete="off">
+  <div class="chips" id="mChips" style="margin-top:10px"></div>
+  <div id="mList"></div>
+  <details class="about guide mset"><summary>备份、导入与设置</summary>
+    <p>题库版本：${DATA_VER} · ${SETS.length} 组 · 联网打开会自动更新</p>
+    <p>授权给：${esc(AUTH_NAME||("邀请码尾号 "+AUTH_TAIL))} · 仅限本人使用，请勿外传</p>
+    <p>你的语料只存在这台设备的浏览器里。换手机、换浏览器或清理浏览器数据之前，先导出备份。</p>
+    <div class="drill-actions" style="margin-top:10px"><button class="btn pri" id="expJson">导出备份（.json）</button><label class="btn" for="impFile" style="display:inline-flex;align-items:center">导入备份</label><input type="file" id="impFile" accept=".json,application/json" hidden><button class="btn" id="expTxt">导出纯文本（.txt）</button><button class="btn ghost" id="chgCode">更换邀请码</button></div>
+  </details>`;
+  renderMStats(); renderMChips(); renderMList();
+  $("#mSearch").addEventListener("input",e=>{ mQ=e.target.value; renderMChips(); renderMList(); });
+  $("#mExport").onclick=openExport;
+  $("#mAddBtn").onclick=()=>{ const a=$("#mAdd"); if(!a.hidden){ a.hidden=true; return; } renderMAdd(); a.hidden=false; const f=a.querySelector("input,textarea"); if(f) f.focus(); };
+  const cc=$("#chgCode"); cc.onclick=()=>{ if(!cc.dataset.ok){cc.dataset.ok="1"; cc.textContent="再点一次确认（你写的语料不会丢）"; return} try{localStorage.removeItem(CODE_KEY)}catch(e){} location.reload(); };
+  $("#expJson").onclick=()=>{ saveBlob(`托福语料备份-${stamp()}.json`,JSON.stringify({kind:"toefl-notes",version:1,notes:N},null,1),"application/json"); toast("已导出备份"); };
+  $("#expTxt").onclick=()=>{ const ks=allKeys().filter(hasContent); if(!ks.length){toast("还没有内容可以导出");return} saveBlob("托福面试我的语料.txt",notesText(ks),"text/plain;charset=utf-8"); };
   $("#impFile").onchange=e=>{ const f=e.target.files&&e.target.files[0]; if(!f) return; const r=new FileReader();
     r.onload=()=>{ try{ const j=JSON.parse(r.result); const inc=j&&j.kind==="toefl-notes"?j.notes:j; const n=mergeNotes(inc); toast(n?`已导入 ${n} 张卡的语料`:"备份里没有比现在更新的内容"); renderMine(); renderGrid(); }catch(err){ toast("这个文件读不了，请选导出的 .json 备份"); } };
     r.readAsText(f); e.target.value=""; };
 }
+function renderMStats(){ const s=mStats(), el=$("#mStats"); if(!el) return;
+  el.innerHTML=`<span><b>${s.cards}</b>张卡有内容</span><span><b>${s.ans}</b>段回答</span><span><b>${s.it}</b>条句子词块</span><span><b>${s.qn}</b>条题目要点</span><span><b>${s.words}</b>词</span>`; }
+function renderMChips(){ const el=$("#mChips"); if(!el) return; const cnt={}; let all=0;
+  for(const k of allKeys()) if(hasContent(k)&&cardMatches(k)){ cnt[famOf(k)]=(cnt[famOf(k)]||0)+1; all++; }
+  if(mF!=="all"&&!cnt[mF]) mF="all";
+  el.innerHTML=[["all","全部",all],...FAMS().filter(f=>cnt[f]).map(f=>[f,(f==="Z"?"":f+" ")+famName(f),cnt[f]])].map(([f,t,c])=>`<button class="chip" aria-pressed="${f===mF}" data-f="${f}">${esc(t)} <span class="cnum">${c}</span></button>`).join("");
+  el.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{ mF=b.dataset.f; renderMChips(); renderMList(); }); }
+function renderMList(){ const el=$("#mList"); if(!el) return;
+  const ks=allKeys().filter(k=>hasContent(k)&&(mF==="all"||famOf(k)===mF)&&cardMatches(k));
+  if(!allKeys().some(hasContent)){ el.innerHTML=`<div class="empty">你还没有写自己的语料。点上面的「＋ 新增语料」直接添加，或者去「语料卡」打开任意一张，在紫色框里写回答、点句型旁边的 ＋ 收藏。也可以在下面「备份、导入与设置」里导入以前的备份。</div>`; return; }
+  if(!ks.length){ el.innerHTML=`<div class="empty">没有找到包含「${esc(mQ)}」的语料。</div>`; return; }
+  el.innerHTML=FAMS().map(f=>{ const g=ks.filter(k=>famOf(k)===f); if(!g.length) return "";
+    return `<section class="mfam"><h2 class="mfam-h"><span>${f==="Z"?"＋":f}</span>${esc(famName(f))}<em>${g.length} 张卡</em></h2>${g.map(mCard).join("")}</section>`; }).join("");
+}
+function mCard(k){ const n=note(k), E=(t,i)=>mEdit===`${k}|${t}|${i}`;
+  const act=(t,i)=>`<span class="mact"><button class="btn ghost" data-act="edit" data-t="${t}" data-i="${esc(i)}">编辑</button><button class="btn ghost del" data-act="del" data-t="${t}" data-i="${esc(i)}">删除</button></span>`;
+  const sv=(t,i)=>`<div class="mact"><button class="btn pri" data-act="save" data-t="${t}" data-i="${esc(i)}">保存</button><button class="btn" data-act="cancel">取消</button></div>`;
+  let h=`<article class="mcard" data-k="${k}"><header class="mhead"><span class="tk">${k===MISC?"":k}</span><b>${esc(cname(k))}</b><span class="mmeta">${n.updatedAt?"更新于 "+fmtWhen(n.updatedAt):""}</span>${CARDS[k]?`<button class="btn ghost golink" data-act="open">打开卡片 →</button>`:""}</header>`;
+  if((n.answer||"").trim()||E("a",0)){
+    h+=`<div class="mblk"><div class="mrow"><p class="label">整段回答 · ${wordsOf(n.answer||"")} 词</p>${E("a",0)?"":act("a",0)}</div>
+      ${E("a",0)?`<textarea class="medit" data-f="a">${esc(n.answer)}</textarea>${sv("a",0)}`:`<div class="mtxt" lang="en">${hl(n.answer.trim())}</div>`}</div>`; }
+  if(n.items.length){
+    h+=`<div class="mblk"><p class="label">句子与词块 · ${n.items.length}</p><ul class="mitems">${n.items.map((x,i)=>E("i",i)
+      ?`<li class="editing"><input type="text" data-f="en" value="${esc(x.en)}" placeholder="英文"><input type="text" data-f="zh" value="${esc(x.zh)}" placeholder="中文备注（可选）">${sv("i",i)}</li>`
+      :`<li><div><div class="en" lang="en">${hl(x.en)}</div>${x.zh?`<div class="zh">${hl(x.zh)}</div>`:""}</div>${act("i",i)}</li>`).join("")}</ul></div>`; }
+  const qn=Object.entries(n.qnotes).filter(([q,v])=>(v||"").trim()||E("q",q));
+  if(qn.length){
+    h+=`<div class="mblk"><p class="label">题目要点 · ${qn.length}</p><ul class="mitems">${qn.map(([q,v])=>{const x=qByKey(q);
+      return `<li class="${E("q",q)?"editing":""}"><div><div class="mq">${x?`<span class="ref">${esc(qref(x))}</span> ${hl(x.q[0])}`:esc(q)}</div>
+        ${E("q",q)?`<textarea class="small medit" data-f="q">${esc(v)}</textarea>${sv("q",q)}`:`<div class="mtxt" lang="en">${hl(v.trim())}</div>`}</div>${E("q",q)?"":act("q",q)}</li>`}).join("")}</ul></div>`; }
+  return h+`</article>`; }
+$("#v-mine").addEventListener("click",e=>{ const b=e.target.closest("[data-act]"); if(!b||!$("#mList").contains(b)) return;
+  const art=b.closest(".mcard"), k=art.dataset.k, n=note(k), t=b.dataset.t, i=b.dataset.i, a=b.dataset.act;
+  if(a==="open"){ openCard(k); return; }
+  if(a==="edit"){ mEdit=`${k}|${t}|${i}`; renderMList(); const f=$("#mList").querySelector(".medit,.editing input"); if(f){ f.focus(); } return; }
+  if(a==="cancel"){ mEdit=""; renderMList(); return; }
+  if(a==="del"){ if(!b.dataset.c){ b.dataset.c="1"; b.textContent="确认删除？"; b.classList.add("warn"); setTimeout(()=>{ if(b.isConnected){ delete b.dataset.c; b.textContent="删除"; b.classList.remove("warn"); } },3000); return; }
+    if(t==="a") n.answer=""; else if(t==="i") n.items.splice(+i,1); else if(t==="q") delete n.qnotes[i];
+    touch(k); mEdit=""; afterMineChange(); toast("已删除"); return; }
+  if(a==="save"){ const box=b.closest(".mblk,li");
+    if(t==="a"){ n.answer=box.querySelector('[data-f="a"]').value; }
+    else if(t==="i"){ const en=box.querySelector('[data-f="en"]').value.trim(), zh=box.querySelector('[data-f="zh"]').value.trim(); if(!en){ toast("英文不能为空"); return; } n.items[+i]={en,zh}; }
+    else if(t==="q"){ n.qnotes[i]=box.querySelector('[data-f="q"]').value; }
+    touch(k); mEdit=""; afterMineChange(); toast("已保存"); }
+});
+function afterMineChange(){ renderMStats(); renderMChips(); renderMList(); }
+function renderMAdd(){ const a=$("#mAdd"); if(!mAddK) mAddK=openK&&CARDS[openK]?openK:Object.keys(CARDS)[0];
+  const qs=CARDS[mAddK]?cardQs(mAddK):[], n=note(mAddK);
+  a.innerHTML=`<div class="blk madd"><label class="label" for="maK">放到哪张卡</label><select id="maK">${cardOpts(mAddK)}</select>
+   <div class="seg" role="radiogroup" aria-label="类型">${[["i","句子 / 词块"],["a","整段回答"],["q","某道题的要点"]].map(([v,t])=>`<label><input type="radio" name="maT" value="${v}" ${v===mAddT?"checked":""} ${v==="q"&&!qs.length?"disabled":""}> ${t}</label>`).join("")}</div>
+   ${mAddT==="i"?`<input type="text" id="maEn" placeholder="英文句子或词块" autocomplete="off"><input type="text" id="maZh" placeholder="中文备注（可选）" autocomplete="off" style="margin-top:6px">`
+    :mAddT==="a"?`<textarea id="maA" placeholder="写一整段 45 秒的回答（约 100–115 词）">${esc(n.answer)}</textarea>${(n.answer||"").trim()?`<p class="hint">这张卡已经有整段回答，保存会替换原来的内容。</p>`:""}`
+    :`<select id="maQ">${qs.map(x=>`<option value="${esc(x.key)}">${esc(qref(x))} · ${esc(x.q[0])}</option>`).join("")}</select><textarea id="maN" class="small" placeholder="这题打算怎么答" style="margin-top:6px"></textarea>`}
+   <div class="mact" style="margin-top:8px"><button class="btn pri" id="maSave">保存</button><button class="btn" id="maClose">收起</button></div></div>`;
+  $("#maK").onchange=e=>{ mAddK=e.target.value; if(mAddT==="q"&&!CARDS[mAddK]) mAddT="i"; renderMAdd(); };
+  a.querySelectorAll('input[name="maT"]').forEach(r=>r.onchange=()=>{ mAddT=r.value; renderMAdd(); });
+  const mq=$("#maQ"), mn=$("#maN"); if(mq&&mn){ const fill=()=>{ mn.value=n.qnotes[mq.value]||""; }; mq.onchange=fill; fill(); }
+  $("#maClose").onclick=()=>{ a.hidden=true; };
+  $("#maSave").onclick=()=>{ const k=mAddK, nn=note(k);
+    if(mAddT==="i"){ const en=$("#maEn").value.trim(), zh=$("#maZh").value.trim(); if(!en){ toast("先写英文"); return; } if(nn.items.some(x=>x.en===en)){ toast("这条已经有了"); return; } nn.items.push({en,zh}); $("#maEn").value=""; $("#maZh").value=""; $("#maEn").focus(); }
+    else if(mAddT==="a"){ const v=$("#maA").value; if(!v.trim()){ toast("先写内容"); return; } nn.answer=v; }
+    else { const v=$("#maN").value; if(!v.trim()){ toast("先写要点"); return; } nn.qnotes[$("#maQ").value]=v; }
+    touch(k); afterMineChange(); toast(`已保存到 ${k===MISC?"":k+" "}${cname(k)}`); };
+}
+
+/* ---------- export: print-ready PDF / Word with an index ---------- */
+function openExport(){ closeExport();
+  const has=allKeys().filter(hasContent);
+  const wrap=document.createElement("div"); wrap.className="sheet-bg"; wrap.id="xBg";
+  wrap.innerHTML=`<div class="sheet" role="dialog" aria-modal="true" aria-labelledby="xT"><h3 id="xT">导出打印版</h3>
+   <p class="label">格式</p><div class="seg col"><label><input type="radio" name="xF" value="pdf" checked> PDF：打开打印窗口，可直接打印或存成 PDF</label><label><input type="radio" name="xF" value="docx"> Word（.docx）：下载后还能再改</label></div>
+   <p class="label">导出哪些卡</p><div class="seg col"><label><input type="radio" name="xS" value="mine" ${has.length?"checked":""} ${has.length?"":"disabled"}> 只要我写过的卡（${has.length} 张）</label><label><input type="radio" name="xS" value="all" ${has.length?"":"checked"}> 全部 30 张，没写的用示范语料补上</label></div>
+   <p class="label">附带内容</p><div class="seg col"><label><input type="checkbox" id="xRef" checked> 示范句型和词块</label><label><input type="checkbox" id="xQ" checked> 每张卡对应的真题</label><label><input type="checkbox" id="xZh" ${TR.zh?"checked":""}> 中文翻译（示范语料、句型、真题）</label></div>
+   <p class="label">类别</p><div class="chips" id="xFam">${FAMS().map(f=>`<button class="chip" aria-pressed="true" data-f="${f}">${f==="Z"?"":f+" "}${esc(famName(f))}</button>`).join("")}</div>
+   <p class="hint" id="xInfo"></p>
+   <div class="mact"><button class="btn pri" id="xGo">导出</button><button class="btn" id="xClose">取消</button></div></div>`;
+  document.body.appendChild(wrap);
+  const opt=()=>({fmt:wrap.querySelector('input[name="xF"]:checked').value, scope:wrap.querySelector('input[name="xS"]:checked').value, ref:$("#xRef").checked, qs:$("#xQ").checked, zh:$("#xZh").checked, fams:new Set([...wrap.querySelectorAll("#xFam .chip")].filter(b=>b.getAttribute("aria-pressed")==="true").map(b=>b.dataset.f))});
+  const info=()=>{ const o=opt(), m=buildExport(o), c=m.groups.reduce((a,g)=>a+g.cards.length,0);
+    $("#xInfo").innerHTML=(c?`将导出 ${c} 张卡。`:`选中的类别里没有可导出的卡。`)+(o.fmt==="pdf"?"<br>电脑上在打印窗口把打印机选成「另存为 PDF」；iPhone 在打印预览上点分享，选「存储到文件」。打印窗口没出来的话，换 Word 格式。":"<br>用 Word、WPS 或手机上的文档 App 打开；在 Word 里右键目录 →「更新域」可以加上页码。");
+    $("#xGo").disabled=!c; };
+  wrap.addEventListener("change",info);
+  wrap.querySelectorAll("#xFam .chip").forEach(b=>b.onclick=()=>{ b.setAttribute("aria-pressed",b.getAttribute("aria-pressed")!=="true"); info(); });
+  wrap.addEventListener("click",e=>{ if(e.target===wrap) closeExport(); });
+  $("#xClose").onclick=closeExport;
+  $("#xGo").onclick=()=>{ const o=opt(), m=buildExport(o); closeExport(); if(o.fmt==="pdf") printExport(m); else docxExport(m); };
+  info(); $("#xGo").focus(); }
+function closeExport(){ const w=$("#xBg"); if(w) w.remove(); }
+function buildExport(o){ const groups=[];
+  for(const f of FAMS()){ if(!o.fams.has(f)) continue; const ks=f==="Z"?[MISC]:Object.keys(CARDS).filter(k=>k[0]===f); const cards=[];
+    for(const k of ks){ const has=hasContent(k); if(!has&&(o.scope==="mine"||k===MISC)) continue; const n=note(k), c=CARDS[k];
+      const B=[];
+      if(c&&c.prep) B.push({t:"small",text:"要准备："+c.prep});
+      if((n.answer||"").trim()){ B.push({t:"lab",text:`我的回答 · ${wordsOf(n.answer)} 词`},{t:"mine",text:n.answer.trim()}); }
+      else if(c){ B.push({t:"lab",text:`示范语料 · ${wordsOf(c.model)} 词（还没写自己的版本）`},{t:"model",text:c.model}); if(o.zh&&ZH.model[k]) B.push({t:"zh",text:ZH.model[k]}); }
+      if(n.items.length){ B.push({t:"lab",text:"我的句子与词块"}); n.items.forEach(x=>B.push({t:"li",text:x.en,sub:x.zh})); }
+      const qn=Object.entries(n.qnotes).filter(([q,v])=>(v||"").trim());
+      if(qn.length){ B.push({t:"lab",text:"我的题目要点"}); qn.forEach(([q,v])=>{ const x=qByKey(q); B.push({t:"q",ref:x?qref(x):"",en:x?x.q[3]:"",zh:x?(o.zh?zhQ(x):x.q[0]):q,note:v.trim()}); }); }
+      if(o.ref&&c){ B.push({t:"lab",text:"句型"}); c.frames.forEach((e,i)=>B.push({t:"li",text:e,sub:o.zh?((ZH.frames[k]||[])[i]||""):""}));
+        B.push({t:"lab",text:"词块"}); B.push({t:"chunks",items:c.chunks}); }
+      if(o.qs&&c){ const qs=cardQs(k).sort((a,b)=>SETS[b.si].win.length-SETS[a.si].win.length); if(qs.length){ B.push({t:"lab",text:`对应真题 · ${qs.length} 道`});
+        qs.forEach(x=>B.push({t:"q",ref:qref(x)+(SETS[x.si].win.length>=2?" ★":""),en:x.q[3],zh:o.zh?zhQ(x):x.q[0],tip:x.q[4]||""})); } }
+      cards.push({k,code:k===MISC?"":k,t:cname(k),blocks:B,words:wordsOf(n.answer||"")}); }
+    if(cards.length) groups.push({f,code:f==="Z"?"":f,name:famName(f),cards}); }
+  const inc=new Set(groups.flatMap(g=>g.cards.map(c=>c.k)));
+  const qidx=SETS.map(s=>({zh:shortZh(s),en:s.t,hot:s.win.length>=2,qs:s.q.map((q,i)=>({i:i+1,k:q[2],in:inc.has(q[2])}))})).filter(s=>s.qs.some(q=>q.in))
+    .sort((a,b)=>a.zh.localeCompare(b.zh,"zh-Hans-CN"));
+  const d=new Date();
+  return {o,groups,qidx,date:`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`,auth:AUTH_NAME||("邀请码尾号 "+AUTH_TAIL),ncards:inc.size,words:groups.reduce((a,g)=>a+g.cards.reduce((b,c)=>b+c.words,0),0)}; }
+const EX_TITLE="托福口语 Take an Interview · 我的语料";
+const EX_NOTE="题库题目均为考生考后回忆整理，并非官方公布的原题，措辞可能与实际考试有出入。";
+function printExport(m){ let root=$("#printRoot"); if(!root){ root=document.createElement("div"); root.id="printRoot"; document.body.appendChild(root); }
+  const B=b=>{ switch(b.t){
+    case "small": return `<p class="p-small">${esc(b.text)}</p>`;
+    case "lab": return `<h4 class="p-lab">${esc(b.text)}</h4>`;
+    case "mine": return `<div class="p-mine">${esc(b.text)}</div>`;
+    case "model": return `<div class="p-model">${esc(b.text)}</div>`;
+    case "zh": return `<div class="p-zh">${esc(b.text)}</div>`;
+    case "li": return `<div class="p-li"><span>${esc(b.text)}</span>${b.sub?`<span class="p-sub">${esc(b.sub)}</span>`:""}</div>`;
+    case "chunks": return `<div class="p-chunks">${b.items.map(([e,z])=>`<span><b>${esc(e)}</b> ${esc(z)}</span>`).join("")}</div>`;
+    case "q": return `<div class="p-q"><div><span class="p-ref">${esc(b.ref)}</span> ${esc(b.en)}</div>${b.zh?`<div class="p-sub">${esc(b.zh)}</div>`:""}${b.tip?`<div class="p-tip">→ ${esc(b.tip)}</div>`:""}${b.note?`<div class="p-note">我的要点：${esc(b.note)}</div>`:""}</div>`; } return ""; };
+  root.innerHTML=`<section class="p-cover"><p class="p-kicker">打印背诵版 · ${esc(m.date)}</p><h1>${esc(EX_TITLE)}</h1>
+    <p class="p-stat">${m.ncards} 张语料卡${m.words?` · 我的回答共 ${m.words} 词`:""}</p><p class="p-small">${esc(EX_NOTE)}</p><p class="p-auth">授权给 ${esc(m.auth)} · 仅限本人使用，请勿外传</p>
+    <h2 class="p-idx-h">内容索引</h2><div class="p-idx">${m.groups.map(g=>`<div class="p-idx-g"><a href="#pf-${g.f}" class="p-idx-f">${g.code?g.code+" ":""}${esc(g.name)}</a>${g.cards.map(c=>`<a href="#pc-${c.k}"><span class="p-code">${c.code}</span>${esc(c.t)}</a>`).join("")}</div>`).join("")}
+    <div class="p-idx-g"><a href="#p-appx" class="p-idx-f">附录 · 按题目查语料卡</a></div></div></section>
+  ${m.groups.map(g=>`<section class="p-fam" id="pf-${g.f}"><h2 class="p-fam-h">${g.code?`<span>${g.code}</span>`:""}${esc(g.name)}</h2>
+    ${g.cards.map(c=>`<article class="p-card" id="pc-${c.k}"><h3><span class="p-code big">${c.code}</span>${esc(c.t)}</h3>${c.blocks.map(B).join("")}</article>`).join("")}</section>`).join("")}
+  <section class="p-fam" id="p-appx"><h2 class="p-fam-h">附录 · 按题目查语料卡</h2><p class="p-small">考到哪组题，就翻到对应编号的卡。★ = 近两个月考过 2 次以上。灰色编号表示这张卡没在本次导出里。</p>
+    <table class="p-tab"><thead><tr><th>题组</th><th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th></tr></thead><tbody>${m.qidx.map(s=>`<tr><td><b>${esc(s.zh)}</b>${s.hot?" ★":""}<br><span class="p-sub">${esc(s.en)}</span></td>${s.qs.map(q=>`<td class="${q.in?"":"off"}">${q.k}</td>`).join("")}</tr>`).join("")}</tbody></table></section>`;
+  document.body.classList.add("printing");
+  const done=()=>{ document.body.classList.remove("printing"); window.removeEventListener("afterprint",done); };
+  window.addEventListener("afterprint",done);
+  setTimeout(()=>{ try{ window.print(); }catch(e){ done(); toast("这个浏览器不能打印，请换 Word 格式"); } },60); }
+
+/* --- minimal .docx writer (stored zip, no compression) --- */
+const CRC_T=(()=>{const t=new Uint32Array(256);for(let n=0;n<256;n++){let c=n;for(let k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(u){let c=0xFFFFFFFF;for(let i=0;i<u.length;i++)c=CRC_T[(c^u[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function zipStore(files,type){ const enc=new TextEncoder(), parts=[], cen=[]; let off=0; const d=new Date();
+  const tm=(d.getHours()<<11)|(d.getMinutes()<<5)|(d.getSeconds()>>1), dt=((d.getFullYear()-1980)<<9)|((d.getMonth()+1)<<5)|d.getDate();
+  for(const f of files){ const nm=enc.encode(f.name), data=typeof f.data==="string"?enc.encode(f.data):f.data, crc=crc32(data);
+    const h=new DataView(new ArrayBuffer(30)); h.setUint32(0,0x04034b50,true); h.setUint16(4,20,true); h.setUint16(6,0x0800,true); h.setUint16(8,0,true); h.setUint16(10,tm,true); h.setUint16(12,dt,true); h.setUint32(14,crc,true); h.setUint32(18,data.length,true); h.setUint32(22,data.length,true); h.setUint16(26,nm.length,true); h.setUint16(28,0,true);
+    parts.push(new Uint8Array(h.buffer),nm,data);
+    const c=new DataView(new ArrayBuffer(46)); c.setUint32(0,0x02014b50,true); c.setUint16(4,20,true); c.setUint16(6,20,true); c.setUint16(8,0x0800,true); c.setUint16(10,0,true); c.setUint16(12,tm,true); c.setUint16(14,dt,true); c.setUint32(16,crc,true); c.setUint32(20,data.length,true); c.setUint32(24,data.length,true); c.setUint16(28,nm.length,true); c.setUint32(42,off,true);
+    cen.push(new Uint8Array(c.buffer),nm); off+=30+nm.length+data.length; }
+  const cs=cen.reduce((a,b)=>a+b.length,0), e=new DataView(new ArrayBuffer(22)); e.setUint32(0,0x06054b50,true); e.setUint16(8,files.length,true); e.setUint16(10,files.length,true); e.setUint32(12,cs,true); e.setUint32(16,off,true);
+  return new Blob([...parts,...cen,new Uint8Array(e.buffer)],{type}); }
+const XE=s=>String(s==null?"":s).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F￾￿]/g,"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+function wR(t,o={}){ const pr=[]; if(o.style) pr.push(`<w:rStyle w:val="${o.style}"/>`); if(o.b) pr.push("<w:b/>"); if(o.color) pr.push(`<w:color w:val="${o.color}"/>`); if(o.sz) pr.push(`<w:sz w:val="${o.sz}"/><w:szCs w:val="${o.sz}"/>`);
+  return `<w:r>${pr.length?`<w:rPr>${pr.join("")}</w:rPr>`:""}${String(t).split("\n").map(s=>`<w:t xml:space="preserve">${XE(s)}</w:t>`).join("<w:br/>")}</w:r>`; }
+function wP(inner,o={}){ const pr=[]; if(o.style) pr.push(`<w:pStyle w:val="${o.style}"/>`); if(o.keep) pr.push("<w:keepNext/>"); if(o.jc) pr.push(`<w:jc w:val="${o.jc}"/>`);
+  return `<w:p>${pr.length?`<w:pPr>${pr.join("")}</w:pPr>`:""}${inner}</w:p>`; }
+let bmId=0; const wBM=(name,inner)=>{ const id=++bmId; return `<w:bookmarkStart w:id="${id}" w:name="${name}"/>${inner}<w:bookmarkEnd w:id="${id}"/>`; };
+const wLink=(anchor,inner)=>`<w:hyperlink w:anchor="${anchor}" w:history="1">${inner}</w:hyperlink>`;
+function docxExport(m){ bmId=0; const body=[]; const P=(i,o)=>body.push(wP(i,o));
+  P(wR("打印背诵版 · "+m.date,{color:"5A6E6A",sz:20}));
+  P(wR(EX_TITLE),{style:"Title"});
+  P(wR(`${m.ncards} 张语料卡${m.words?` · 我的回答共 ${m.words} 词`:""}`,{sz:24}));
+  P(wR(EX_NOTE),{style:"Small"});
+  P(wR(`授权给 ${m.auth} · 仅限本人使用，请勿外传`,{b:true,color:"7A4FB5",sz:20}));
+  P(wR("内容索引"),{style:"IndexHead"});
+  P(wR("点条目可以跳到对应位置。在 Word 里右键目录 →「更新域」→「更新整个目录」可以加上页码。"),{style:"Small"});
+  const toc=[]; m.groups.forEach(g=>{ toc.push({lv:1,text:(g.code?g.code+"  ":"")+g.name,a:"f_"+g.f}); g.cards.forEach(c=>toc.push({lv:2,text:(c.code?c.code+"  ":"")+c.t,a:"c_"+c.k.replace(/[^A-Za-z0-9]/g,"")})); });
+  toc.push({lv:1,text:"附录  按题目查语料卡",a:"appx"});
+  toc.forEach((e,i)=>{ const begin=i===0?`<w:r><w:fldChar w:fldCharType="begin"/></w:r><w:r><w:instrText xml:space="preserve"> TOC \\o "1-2" \\h \\z \\u </w:instrText></w:r><w:r><w:fldChar w:fldCharType="separate"/></w:r>`:"";
+    const end=i===toc.length-1?`<w:r><w:fldChar w:fldCharType="end"/></w:r>`:"";
+    P(begin+wLink(e.a,wR(e.text,{style:"Hyperlink"}))+end,{style:"TOC"+e.lv}); });
+  for(const g of m.groups){ P(wBM("f_"+g.f,wR((g.code?g.code+"  ":"")+g.name)),{style:"Heading1"});
+    for(const c of g.cards){ P(wBM("c_"+c.k.replace(/[^A-Za-z0-9]/g,""),wR((c.code?c.code+"  ":"")+c.t)),{style:"Heading2"});
+      for(const b of c.blocks){ switch(b.t){
+        case "small": P(wR(b.text),{style:"Small"}); break;
+        case "lab": P(wR(b.text),{style:"Heading3"}); break;
+        case "mine": P(wR(b.text),{style:"Mine"}); break;
+        case "model": P(wR(b.text),{style:"Model"}); break;
+        case "zh": P(wR(b.text),{style:"Zh"}); break;
+        case "li": P(wR("• "+b.text)+(b.sub?wR("\n"+b.sub,{color:"5A6E6A",sz:19}):""),{style:"Item"}); break;
+        case "chunks": b.items.forEach(([e,z])=>P(wR("• ")+wR(e,{b:true})+wR("  "+z,{color:"5A6E6A",sz:19}),{style:"Item"})); break;
+        case "q": P((b.ref?wR(b.ref+"  ",{b:true,color:"0F6B5F",sz:19}):"")+wR(b.en),{style:"Item"});
+          if(b.zh) P(wR(b.zh),{style:"ItemZh"}); if(b.tip) P(wR("→ "+b.tip,{color:"0F6B5F"}),{style:"ItemZh"}); if(b.note) P(wR("我的要点："+b.note),{style:"MineItem"}); break; } } } }
+  P(wBM("appx",wR("附录  按题目查语料卡")),{style:"Heading1"});
+  P(wR("考到哪组题，就翻到对应编号的卡。★ = 近两个月考过 2 次以上。带括号的编号表示这张卡没在本次导出里。"),{style:"Small"});
+  const cell=(t,o={})=>`<w:tc><w:tcPr><w:tcW w:w="${o.w||1200}" w:type="dxa"/>${o.fill?`<w:shd w:val="clear" w:color="auto" w:fill="${o.fill}"/>`:""}</w:tcPr><w:p><w:pPr><w:spacing w:before="40" w:after="40"/>${o.jc?`<w:jc w:val="${o.jc}"/>`:""}</w:pPr>${t}</w:p></w:tc>`;
+  const rows=[`<w:tr><w:trPr><w:tblHeader/></w:trPr>${cell(wR("题组",{b:true}),{w:4826,fill:"E1EFEC"})}${["Q1","Q2","Q3","Q4"].map(q=>cell(wR(q,{b:true}),{fill:"E1EFEC",jc:"center"})).join("")}</w:tr>`,
+    ...m.qidx.map(s=>`<w:tr><w:trPr><w:cantSplit/></w:trPr>${cell(wR(s.zh+(s.hot?" ★":""),{b:true})+wR("\n"+s.en,{color:"5A6E6A",sz:17}),{w:4826})}${[0,1,2,3].map(i=>{const q=s.qs[i]; return cell(q?wR(q.in?q.k:"("+q.k+")",{color:q.in?"15302C":"9AA9A5",b:q.in}):"",{jc:"center"})}).join("")}</w:tr>`)];
+  const bd=`<w:tblBorders>${["top","left","bottom","right","insideH","insideV"].map(s=>`<w:${s} w:val="single" w:sz="4" w:space="0" w:color="D7E0DD"/>`).join("")}</w:tblBorders>`;
+  body.push(`<w:tbl><w:tblPr><w:tblW w:w="9626" w:type="dxa"/>${bd}<w:tblLayout w:type="fixed"/><w:tblCellMar><w:left w:w="100" w:type="dxa"/><w:right w:w="100" w:type="dxa"/></w:tblCellMar></w:tblPr><w:tblGrid><w:gridCol w:w="4826"/>${"<w:gridCol w:w=\"1200\"/>".repeat(4)}</w:tblGrid>${rows.join("")}</w:tbl>`);
+  P("");
+  const W='xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships"';
+  const doc=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<w:document ${W}><w:body>${body.join("")}<w:sectPr><w:footerReference w:type="default" r:id="rId3"/><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1134" w:right="1134" w:bottom="1134" w:left="1134" w:header="567" w:footer="567" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const ps=(id,name,ppr,rpr,o={})=>`<w:style w:type="paragraph" w:styleId="${id}"${o.def?' w:default="1"':""}><w:name w:val="${name}"/>${id!=="Normal"?'<w:basedOn w:val="Normal"/>':""}${o.next?`<w:next w:val="${o.next}"/>`:""}${o.q?"<w:qFormat/>":""}${ppr?`<w:pPr>${ppr}</w:pPr>`:""}${rpr?`<w:rPr>${rpr}</w:rPr>`:""}</w:style>`;
+  const styles=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">
+<w:docDefaults><w:rPrDefault><w:rPr><w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:eastAsia="Microsoft YaHei" w:cs="Calibri"/><w:sz w:val="21"/><w:szCs w:val="21"/><w:lang w:val="en-US" w:eastAsia="zh-CN"/></w:rPr></w:rPrDefault><w:pPrDefault><w:pPr><w:spacing w:after="80" w:line="300" w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>
+${ps("Normal","Normal","","",{def:1,q:1})}
+${ps("Title","Title",'<w:spacing w:before="120" w:after="160"/>','<w:b/><w:color w:val="0F6B5F"/><w:sz w:val="44"/><w:szCs w:val="44"/>',{q:1})}
+${ps("Heading1","heading 1",'<w:keepNext/><w:pageBreakBefore/><w:pBdr><w:bottom w:val="single" w:sz="12" w:space="4" w:color="0F6B5F"/></w:pBdr><w:spacing w:before="0" w:after="240"/><w:outlineLvl w:val="0"/>','<w:b/><w:color w:val="0F6B5F"/><w:sz w:val="34"/><w:szCs w:val="34"/>',{q:1,next:"Normal"})}
+${ps("Heading2","heading 2",'<w:keepNext/><w:pBdr><w:bottom w:val="single" w:sz="4" w:space="2" w:color="D7E0DD"/></w:pBdr><w:spacing w:before="360" w:after="120"/><w:outlineLvl w:val="1"/>','<w:b/><w:color w:val="15302C"/><w:sz w:val="28"/><w:szCs w:val="28"/>',{q:1,next:"Normal"})}
+${ps("Heading3","heading 3",'<w:keepNext/><w:spacing w:before="160" w:after="60"/><w:outlineLvl w:val="2"/>','<w:b/><w:color w:val="5A6E6A"/><w:sz w:val="18"/><w:szCs w:val="18"/>',{q:1,next:"Normal"})}
+${ps("IndexHead","Index Heading",'<w:keepNext/><w:spacing w:before="360" w:after="80"/>','<w:b/><w:color w:val="0F6B5F"/><w:sz w:val="28"/>')}
+${ps("Small","Small Note",'','<w:color w:val="5A6E6A"/><w:sz w:val="18"/><w:szCs w:val="18"/>')}
+${ps("Model","Model Answer",'<w:pBdr><w:left w:val="single" w:sz="18" w:space="8" w:color="0F6B5F"/></w:pBdr><w:shd w:val="clear" w:color="auto" w:fill="E1EFEC"/><w:spacing w:after="80" w:line="320" w:lineRule="auto"/><w:ind w:left="200" w:right="100"/>','<w:sz w:val="22"/><w:szCs w:val="22"/>')}
+${ps("Mine","My Answer",'<w:pBdr><w:left w:val="single" w:sz="18" w:space="8" w:color="7A4FB5"/></w:pBdr><w:shd w:val="clear" w:color="auto" w:fill="F1EAF9"/><w:spacing w:after="80" w:line="320" w:lineRule="auto"/><w:ind w:left="200" w:right="100"/>','<w:sz w:val="22"/><w:szCs w:val="22"/>')}
+${ps("Zh","Translation",'<w:ind w:left="200"/>','<w:color w:val="5A6E6A"/><w:sz w:val="19"/><w:szCs w:val="19"/>')}
+${ps("Item","List Item",'<w:spacing w:before="60" w:after="20"/><w:ind w:left="300" w:hanging="200"/>','')}
+${ps("ItemZh","List Item Note",'<w:spacing w:after="20"/><w:ind w:left="300"/>','<w:color w:val="5A6E6A"/><w:sz w:val="19"/><w:szCs w:val="19"/>')}
+${ps("MineItem","List Item Mine",'<w:shd w:val="clear" w:color="auto" w:fill="F1EAF9"/><w:spacing w:after="60"/><w:ind w:left="300"/>','<w:color w:val="4A2F73"/><w:sz w:val="20"/><w:szCs w:val="20"/>')}
+${ps("TOC1","toc 1",'<w:spacing w:before="120" w:after="20"/>','<w:b/>',{next:"Normal"})}
+${ps("TOC2","toc 2",'<w:spacing w:after="0"/><w:ind w:left="420"/>','',{next:"Normal"})}
+<w:style w:type="character" w:styleId="Hyperlink"><w:name w:val="Hyperlink"/><w:rPr><w:color w:val="15302C"/></w:rPr></w:style>
+</w:styles>`;
+  const footer=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<w:ftr ${W}><w:p><w:pPr><w:jc w:val="center"/></w:pPr>${wR(`授权给 ${m.auth} · 请勿外传 · 第 `,{color:"888888",sz:16})}<w:fldSimple w:instr=" PAGE ">${wR("1",{color:"888888",sz:16})}</w:fldSimple>${wR(" 页",{color:"888888",sz:16})}</w:p></w:ftr>`;
+  const files=[
+    {name:"[Content_Types].xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/><Override PartName="/word/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.styles+xml"/><Override PartName="/word/settings.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.settings+xml"/><Override PartName="/word/footer1.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.footer+xml"/><Override PartName="/docProps/core.xml" ContentType="application/vnd.openxmlformats-package.core-properties+xml"/></Types>`},
+    {name:"_rels/.rels",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/package/2006/relationships/metadata/core-properties" Target="docProps/core.xml"/></Relationships>`},
+    {name:"docProps/core.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<cp:coreProperties xmlns:cp="http://schemas.openxmlformats.org/package/2006/metadata/core-properties" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><dc:title>${XE(EX_TITLE)}</dc:title><dc:creator>${XE(m.auth)}</dc:creator><dcterms:created xsi:type="dcterms:W3CDTF">${new Date().toISOString().replace(/\.\d+Z$/,"Z")}</dcterms:created></cp:coreProperties>`},
+    {name:"word/_rels/document.xml.rels",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/><Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/footer" Target="footer1.xml"/></Relationships>`},
+    {name:"word/document.xml",data:doc},
+    {name:"word/styles.xml",data:styles},
+    {name:"word/settings.xml",data:`<?xml version="1.0" encoding="UTF-8" standalone="yes"?>\n<w:settings xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:defaultTabStop w:val="420"/><w:characterSpacingControl w:val="compressPunctuation"/><w:compat><w:compatSetting w:name="compatibilityMode" w:uri="http://schemas.microsoft.com/office/word" w:val="15"/></w:compat></w:settings>`},
+    {name:"word/footer1.xml",data:footer}];
+  saveFile(`托福口语语料-打印版-${stamp()}.docx`,zipStore(files,"application/vnd.openxmlformats-officedocument.wordprocessingml.document"));
+  toast("Word 文件已下载"); }
+
 function refreshLists(){ if(view==="cards"&&!openK) renderGrid(); if(view==="mine") renderMine(); }
 
 /* ---------- guide ---------- */
@@ -515,6 +951,7 @@ function refreshLists(){ if(view==="cards"&&!openK) renderGrid(); if(view==="min
   if(!sa&&!seen) g.open=true;
   g.addEventListener("toggle",()=>{try{localStorage.setItem("toefl-guide-seen","1")}catch(e){}}); })();
 /* ---------- start ---------- */
+applyTR(); if(TR.dict) loadDict().catch(()=>{});
 renderGrid(); renderBank();
 const h0=(location.hash||"").slice(1);
 if(CARDS[h0]) openCard(h0); else if(["drill","bank","mine"].includes(h0)) show(h0);

@@ -1,5 +1,5 @@
 // 离线缓存：有网时总是取最新文件（这样你每周更新的 data.json 会马上生效），没网时用上次缓存的版本。
-const V = "toefl-v3";
+const V = "toefl-v4";
 const CORE = ["./", "index.html", "data.enc.json", "manifest.webmanifest", "icon-192.png", "icon-512.png", "apple-touch-icon.png"];
 
 self.addEventListener("install", e => {
